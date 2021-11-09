@@ -5,9 +5,15 @@
 
 extern int contLineas;
 
+int ant=-1;
+
 void yyerror(const char *str)
 {
+
+    if(ant!=contLineas){
     fprintf(stderr, "error: %s, %d\n", str, contLineas);
+        ant=contLineas;
+    }
 }
 
 int yywrap()
@@ -95,21 +101,20 @@ clase:
 
             declaracion: tipo ID PUNTOYCOMA
                 | tipovector ID PUNTOYCOMA
-                | tipovector asignacion PUNTOYCOMA
+                | tipovector ID OPASIGN valorvector PUNTOYCOMA
                 | tipo asignacion PUNTOYCOMA
                 | tipo ID declaracion2 PUNTOYCOMA
                 | tipovector ID declaracion2 PUNTOYCOMA
                 | tipo asignacion declaracion2 PUNTOYCOMA
                 | tipovector asignacion declaracion2 PUNTOYCOMA
                 | asignacion PUNTOYCOMA
-
+                | ID OPASIGN valorvector PUNTOYCOMA
                 ;
                 declaracion2: COMA asignacion
                 | declaracion2 COMA asignacion;
                 
                 asignacion: valorasigarit 
                 | ID OPASIGN CTECADENA
-                | valorvector
                 ;
 
                 valorvector: NEW tipo dimensionval;
@@ -156,12 +161,15 @@ clase:
                             | OPMOD
                             ;
 
-        condicion: condicion operadoreslogconcat verificacion | verificacion;
+        condicion: condicion operadoreslogconcat verificacion 
+                | verificacion 
+                ;
 
-            verificacion: ID operadoreslogarit operacion
-            | ID operadoreslogcompa CTECADENA
-            | ID operadoreslogcompa operacion
+            verificacion: ID OPNO CTECADENA
+            | ID OPY CTECADENA
             | ID operadoreslogconcat ID
+            | operacion operadoreslogarit operacion
+            | operacion operadoreslogcompa operacion
             | PARENTA verificacion PARENTC
             | OPNO PARENTA verificacion PARENTC
             ;
@@ -180,13 +188,13 @@ clase:
             | OPMAYORIGUAL
             ;
 
-        structfor: FOR PARENTA tipo asignacion PUNTOYCOMA for2
-            | FOR PARENTA asignacion PUNTOYCOMA for2
+        structfor: FOR PARENTA tipo asignacion for2 LLAVEC
+            | FOR PARENTA asignacion  for2 LLAVEC
+            | error {yyerrok;yyclearin;}
             ;
-            for2: condicion PUNTOYCOMA valorasigarit PARENTC LLAVEA for3
-            ;
-                for3: bloque LLAVEC
-                    | LLAVEC;
+                for2: PUNTOYCOMA  condicion PUNTOYCOMA valorasigarit PARENTC LLAVEA bloque 
+                    | PUNTOYCOMA  condicion PUNTOYCOMA valorasigarit PARENTC LLAVEA
+                    ;
 
         structwhile: WHILE PARENTA condicion PARENTC LLAVEA cerrarbloque
         | WHILE PARENTA ID PARENTC LLAVEA cerrarbloque
