@@ -1,7 +1,7 @@
 public class AnyThing{   
 
-    public static void main(String[] args){      
-        int j=1;
+    public static void main(String[] args) {  
+        int j =1
         char c;
         String cadena;
         double CADENA;
@@ -29,7 +29,7 @@ public class AnyThing{
 
         }
 
-        for( k = n; k != j; k=*(i+2-3)*(1/2)+5){
+        for(k = n; k != j; k*(i+2-3)*(1/2)+5){
             i*=k;
             z/=2.0;
 
@@ -38,7 +38,7 @@ public class AnyThing{
             }
 
             if(!(2+1>1) || (2+1>1)){
-                for( k = n; k > 1; k*=(i+2-3)*(1/2)+5){
+                for( k = n; k > 1; k=(i+2-3)*(1/2)+5){
 
                 }
             }else{

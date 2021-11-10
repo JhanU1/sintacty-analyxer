@@ -54,7 +54,7 @@ clase:
 
     metodomain: 
         PUBLIC STATIC VOID ID PARENTA parametro PARENTC LLAVEA cerrarbloque
-        | error {yyerrok;yyclearin;}
+        | error {yyerrok;yyclearin;} cerrarbloque
         ;       
         cerrarbloque: bloque LLAVEC
         | LLAVEC
@@ -96,7 +96,6 @@ clase:
         | bloque structfor
         | bloque structwhile
         | bloque strucif
-        | error {yyerrok;yyclearin;}
         ;
 
             declaracion: tipo ID PUNTOYCOMA
@@ -188,16 +187,16 @@ clase:
             | OPMAYORIGUAL
             ;
 
-        structfor: FOR PARENTA tipo asignacion for2 LLAVEC
-            | FOR PARENTA asignacion  for2 LLAVEC
-            | error {yyerrok;yyclearin;}
+        structfor: FOR PARENTA tipo asignacion for2
+            | FOR PARENTA asignacion for2
             ;
-                for2: PUNTOYCOMA  condicion PUNTOYCOMA valorasigarit PARENTC LLAVEA bloque 
-                    | PUNTOYCOMA  condicion PUNTOYCOMA valorasigarit PARENTC LLAVEA
+                for2: PUNTOYCOMA  condicion PUNTOYCOMA valorasigarit PARENTC LLAVEA cerrarbloque
+                    | error {yyerrok;yyclearin;} cerrarbloque
                     ;
 
         structwhile: WHILE PARENTA condicion PARENTC LLAVEA cerrarbloque
         | WHILE PARENTA ID PARENTC LLAVEA cerrarbloque
+
         ;
 
         strucif: IF PARENTA condicion PARENTC LLAVEA cerrarbloque
@@ -205,7 +204,9 @@ clase:
         | strucif strucifelse
         ;
 
-        strucifelse: ELSE LLAVEA cerrarbloque;
+        strucifelse: ELSE LLAVEA cerrarbloque
+        | error {yyerrok;yyclearin;} cerrarbloque
+        ;
 
 
 
