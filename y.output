@@ -66,129 +66,131 @@ rule 53   declaracion -> asignacion PUNTOYCOMA
 rule 54   declaracion -> ID OPASIGN valorvector PUNTOYCOMA
 rule 55   declaracion -> error PUNTOYCOMA
 rule 56   declaracion2 -> COMA asignacion
-rule 57   declaracion2 -> declaracion2 COMA asignacion
-rule 58   asignacion -> valorasigarit
-rule 59   asignacion -> ID OPASIGN CTECADENA
-rule 60   valorvector -> NEW tipo dimensionval
-rule 61   valorasigarit -> ID operadoresaritasig
-rule 62   valorasigarit -> ID OPMASMAS
-rule 63   valorasigarit -> ID OPASIGN operacion
-rule 64   valorasigarit -> ID OPMENOSMENOS
-rule 65   operadoresaritasig -> OPPORASIGN operacion
-rule 66   operadoresaritasig -> OPSUMASIGN operacion
-rule 67   operadoresaritasig -> OPSUSASIGN operacion
-rule 68   operadoresaritasig -> OPDIVASIGN operacion
-rule 69   operacion -> PARENTA operacion PARENTC
-rule 70   operacion -> valoroperacion
-rule 71   operacion -> constsconsignoarit
-rule 72   operacion -> operacion operadoresarit PARENTA operacion PARENTC
-rule 73   operacion -> operacion operadoressumasus PARENTA operacion PARENTC
-rule 74   operacion -> operacion operadoresarit valoroperacion
-rule 75   operacion -> operacion operadoresarit constsconsignoarit
-rule 76   operacion -> operacion constsconsignoarit
-rule 77   valoroperacion -> constssinsignoarit
-rule 78   valoroperacion -> ID
-rule 79   constssinsignoarit -> CTEENTSINSIGNO
-rule 80   constssinsignoarit -> CTEREALSINSIGNO
-rule 81   constsconsignoarit -> CTEREALSIGNO
-rule 82   constsconsignoarit -> CTEENTSIGNO
-rule 83   operadoressumasus -> OPSUM
-rule 84   operadoressumasus -> OPSUS
-rule 85   operadoresarit -> OPMULT
-rule 86   operadoresarit -> OPDIV
-rule 87   operadoresarit -> OPMOD
-rule 88   condicion -> condicion operadoreslogconcat verificacion
-rule 89   condicion -> verificacion
-rule 90   verificacion -> ID OPNO CTECADENA
-rule 91   verificacion -> ID OPY CTECADENA
-rule 92   verificacion -> ID operadoreslogconcat ID
-rule 93   verificacion -> operacion operadoreslogarit operacion
-rule 94   verificacion -> operacion operadoreslogcompa operacion
-rule 95   verificacion -> PARENTA verificacion PARENTC
-rule 96   verificacion -> OPNO PARENTA verificacion PARENTC
-rule 97   operadoreslogconcat -> OPY
-rule 98   operadoreslogconcat -> OPO
-rule 99   operadoreslogcompa -> OPDIFERENTE
-rule 100  operadoreslogcompa -> IGUAL
-rule 101  operadoreslogarit -> OPMENORIGUAL
-rule 102  operadoreslogarit -> OPMENOR
-rule 103  operadoreslogarit -> OPMAYOR
-rule 104  operadoreslogarit -> OPMAYORIGUAL
-rule 105  structfor -> FOR PARENTA tipo asignacion for2
-rule 106  structfor -> FOR PARENTA asignacion for2
-rule 107  structfor -> error LLAVEA cerrarbloque
-rule 108  for2 -> PUNTOYCOMA condicion PUNTOYCOMA valorasigarit PARENTC LLAVEA cerrarbloque
-rule 109  for2 -> error cerrarbloque
-rule 110  structwhile -> WHILE PARENTA structwhile2
-rule 111  structwhile -> WHILE PARENTA ID PARENTC LLAVEA cerrarbloque
-rule 112  structwhile -> error PARENTA PARENTC LLAVEA cerrarbloque
-rule 113  structwhile2 -> condicion PARENTC LLAVEA cerrarbloque
-rule 114  structwhile2 -> error PARENTC LLAVEA cerrarbloque
-rule 115  strucif -> IF PARENTA strucif2
-rule 116  strucif -> strucif strucifelse
-rule 117  strucif2 -> condicion PARENTC LLAVEA cerrarbloque
-rule 118  strucif2 -> ID PARENTC LLAVEA cerrarbloque
-rule 119  strucif2 -> error LLAVEA cerrarbloque
-rule 120  strucifelse -> ELSE LLAVEA cerrarbloque
+rule 57   declaracion2 -> COMA ID
+rule 58   declaracion2 -> declaracion2 COMA ID
+rule 59   declaracion2 -> declaracion2 COMA asignacion
+rule 60   asignacion -> valorasigarit
+rule 61   asignacion -> ID OPASIGN CTECADENA
+rule 62   valorvector -> NEW tipo dimensionval
+rule 63   valorasigarit -> ID operadoresaritasig
+rule 64   valorasigarit -> ID OPMASMAS
+rule 65   valorasigarit -> ID OPASIGN operacion
+rule 66   valorasigarit -> ID OPMENOSMENOS
+rule 67   operadoresaritasig -> OPPORASIGN operacion
+rule 68   operadoresaritasig -> OPSUMASIGN operacion
+rule 69   operadoresaritasig -> OPSUSASIGN operacion
+rule 70   operadoresaritasig -> OPDIVASIGN operacion
+rule 71   operacion -> PARENTA operacion PARENTC
+rule 72   operacion -> valoroperacion
+rule 73   operacion -> constsconsignoarit
+rule 74   operacion -> operacion operadoresarit PARENTA operacion PARENTC
+rule 75   operacion -> operacion operadoressumasus PARENTA operacion PARENTC
+rule 76   operacion -> operacion operadoresarit valoroperacion
+rule 77   operacion -> operacion operadoresarit constsconsignoarit
+rule 78   operacion -> operacion constsconsignoarit
+rule 79   valoroperacion -> constssinsignoarit
+rule 80   valoroperacion -> ID
+rule 81   constssinsignoarit -> CTEENTSINSIGNO
+rule 82   constssinsignoarit -> CTEREALSINSIGNO
+rule 83   constsconsignoarit -> CTEREALSIGNO
+rule 84   constsconsignoarit -> CTEENTSIGNO
+rule 85   operadoressumasus -> OPSUM
+rule 86   operadoressumasus -> OPSUS
+rule 87   operadoresarit -> OPMULT
+rule 88   operadoresarit -> OPDIV
+rule 89   operadoresarit -> OPMOD
+rule 90   condicion -> condicion operadoreslogconcat verificacion
+rule 91   condicion -> verificacion
+rule 92   verificacion -> ID OPNO CTECADENA
+rule 93   verificacion -> ID OPY CTECADENA
+rule 94   verificacion -> ID operadoreslogconcat ID
+rule 95   verificacion -> operacion operadoreslogarit operacion
+rule 96   verificacion -> operacion operadoreslogcompa operacion
+rule 97   verificacion -> PARENTA verificacion PARENTC
+rule 98   verificacion -> OPNO PARENTA verificacion PARENTC
+rule 99   operadoreslogconcat -> OPY
+rule 100  operadoreslogconcat -> OPO
+rule 101  operadoreslogcompa -> OPDIFERENTE
+rule 102  operadoreslogcompa -> IGUAL
+rule 103  operadoreslogarit -> OPMENORIGUAL
+rule 104  operadoreslogarit -> OPMENOR
+rule 105  operadoreslogarit -> OPMAYOR
+rule 106  operadoreslogarit -> OPMAYORIGUAL
+rule 107  structfor -> FOR PARENTA tipo asignacion for2
+rule 108  structfor -> FOR PARENTA asignacion for2
+rule 109  structfor -> error LLAVEA cerrarbloque
+rule 110  for2 -> PUNTOYCOMA condicion PUNTOYCOMA valorasigarit PARENTC LLAVEA cerrarbloque
+rule 111  for2 -> error cerrarbloque
+rule 112  structwhile -> WHILE PARENTA structwhile2
+rule 113  structwhile -> WHILE PARENTA ID PARENTC LLAVEA cerrarbloque
+rule 114  structwhile -> error PARENTA PARENTC LLAVEA cerrarbloque
+rule 115  structwhile2 -> condicion PARENTC LLAVEA cerrarbloque
+rule 116  structwhile2 -> error PARENTC LLAVEA cerrarbloque
+rule 117  strucif -> IF PARENTA strucif2
+rule 118  strucif -> strucif strucifelse
+rule 119  strucif2 -> condicion PARENTC LLAVEA cerrarbloque
+rule 120  strucif2 -> ID PARENTC LLAVEA cerrarbloque
+rule 121  strucif2 -> error LLAVEA cerrarbloque
+rule 122  strucifelse -> ELSE LLAVEA cerrarbloque
 
 Terminals, with rules where they appear
 
 $ (-1)
-error (256) 2 3 4 5 9 10 11 12 13 14 15 20 55 107 109 112 114 119
-COMA (258) 56 57
-CTEREALSIGNO (259) 81
-CTEREALSINSIGNO (260) 80
-CTEENTSIGNO (261) 30 32 82
-CTEENTSINSIGNO (262) 31 33 79
-CTECADENA (263) 59 90 91
-PUNTOYCOMA (264) 45 46 47 48 49 50 51 52 53 54 55 108
-ELSE (265) 120
-IF (266) 115
-FOR (267) 105 106
-WHILE (268) 110 111
+error (256) 2 3 4 5 9 10 11 12 13 14 15 20 55 109 111 114 116 121
+COMA (258) 56 57 58 59
+CTEREALSIGNO (259) 83
+CTEREALSINSIGNO (260) 82
+CTEENTSIGNO (261) 30 32 84
+CTEENTSINSIGNO (262) 31 33 81
+CTECADENA (263) 61 92 93
+PUNTOYCOMA (264) 45 46 47 48 49 50 51 52 53 54 55 110
+ELSE (265) 122
+IF (266) 117
+FOR (267) 107 108
+WHILE (268) 112 113
 DOUBLE (269) 24 28
 INT (270) 23 27
 STRING (271) 21 25
 CHAR (272) 22 26
-NEW (273) 60
+NEW (273) 62
 PUBLIC (274) 1 8
 CLASS (275) 1 2
 STATIC (276) 8 9
 VOID (277) 8 9 10
-ID (278) 1 2 3 8 9 10 11 18 19 20 29 34 45 46 47 49 50 54 59 61 62
-    63 64 78 90 91 92 111 118
+ID (278) 1 2 3 8 9 10 11 18 19 20 29 34 45 46 47 49 50 54 57 58 61
+    63 64 65 66 80 92 93 94 113 120
 COMENTARIOSIMPLE (279)
 COMENTARIOCOMPLETO (280)
-OPMULT (281) 85
-OPSUM (282) 83
-OPSUS (283) 84
-OPDIV (284) 86
-OPASIGN (285) 47 54 59 63
-OPMOD (286) 87
-OPMASMAS (287) 62
-OPMENOSMENOS (288) 64
-OPPORASIGN (289) 65
-OPDIVASIGN (290) 68
-OPSUMASIGN (291) 66
-OPSUSASIGN (292) 67
-LLAVEA (293) 1 2 3 4 8 9 10 11 12 13 14 107 108 111 112 113 114 117
-    118 119 120
+OPMULT (281) 87
+OPSUM (282) 85
+OPSUS (283) 86
+OPDIV (284) 88
+OPASIGN (285) 47 54 61 65
+OPMOD (286) 89
+OPMASMAS (287) 64
+OPMENOSMENOS (288) 66
+OPPORASIGN (289) 67
+OPDIVASIGN (290) 70
+OPSUMASIGN (291) 68
+OPSUSASIGN (292) 69
+LLAVEA (293) 1 2 3 4 8 9 10 11 12 13 14 109 110 113 114 115 116 119
+    120 121 122
 LLAVEC (294) 6 7 16 17
-PARENTA (295) 8 9 10 11 12 69 72 73 95 96 105 106 110 111 112 115
-PARENTC (296) 8 9 10 11 12 13 14 69 72 73 95 96 108 111 112 113 114
-    117 118
+PARENTA (295) 8 9 10 11 12 71 74 75 97 98 107 108 112 113 114 117
+PARENTC (296) 8 9 10 11 12 13 14 71 74 75 97 98 110 113 114 115 116
+    119 120
 CORCHETEA (297) 29 30 31 32 33 34 35 36
 CORCHETEC (298) 29 30 31 32 33 34 35 36
-IGUAL (299) 100
+IGUAL (299) 102
 ARRAY (300)
-OPMENORIGUAL (301) 101
-OPMAYORIGUAL (302) 104
-OPDIFERENTE (303) 99
-OPMAYOR (304) 103
-OPMENOR (305) 102
-OPY (306) 91 97
-OPO (307) 98
-OPNO (308) 90 96
+OPMENORIGUAL (301) 103
+OPMAYORIGUAL (302) 106
+OPDIFERENTE (303) 101
+OPMAYOR (304) 105
+OPMENOR (305) 104
+OPY (306) 93 99
+OPO (307) 100
+OPNO (308) 92 98
 VACIO (309)
 
 Nonterminals, with rules where they appear
@@ -200,16 +202,16 @@ clase2 (56)
 metodomain (57)
     on left: 8 9 10 11 12 13 14 15, on right: 6
 cerrarbloque (58)
-    on left: 16 17, on right: 8 9 10 11 12 13 14 15 107 108 109 111
-    112 113 114 117 118 119 120
+    on left: 16 17, on right: 8 9 10 11 12 13 14 15 109 110 111 113
+    114 115 116 119 120 121 122
 parametro (59)
     on left: 18 19 20, on right: 8 9 10 11 12 13
 tipo (60)
-    on left: 21 22 23 24, on right: 18 45 48 49 51 60 105
+    on left: 21 22 23 24, on right: 18 45 48 49 51 62 107
 tipovector (61)
     on left: 25 26 27 28, on right: 19 46 47 50 52
 dimensionval (62)
-    on left: 29 30 31 32 33 34, on right: 32 33 34 60
+    on left: 29 30 31 32 33 34, on right: 32 33 34 62
 dimensionparam (63)
     on left: 35 36, on right: 25 26 27 28 36
 bloque (64)
@@ -217,52 +219,52 @@ bloque (64)
 declaracion (65)
     on left: 45 46 47 48 49 50 51 52 53 54 55, on right: 37 41
 declaracion2 (66)
-    on left: 56 57, on right: 49 50 51 52 57
+    on left: 56 57 58 59, on right: 49 50 51 52 58 59
 asignacion (67)
-    on left: 58 59, on right: 48 51 52 53 56 57 105 106
+    on left: 60 61, on right: 48 51 52 53 56 59 107 108
 valorvector (68)
-    on left: 60, on right: 47 54
+    on left: 62, on right: 47 54
 valorasigarit (69)
-    on left: 61 62 63 64, on right: 58 108
+    on left: 63 64 65 66, on right: 60 110
 operadoresaritasig (70)
-    on left: 65 66 67 68, on right: 61
+    on left: 67 68 69 70, on right: 63
 operacion (71)
-    on left: 69 70 71 72 73 74 75 76, on right: 63 65 66 67 68 69 72
-    73 74 75 76 93 94
+    on left: 71 72 73 74 75 76 77 78, on right: 65 67 68 69 70 71 74
+    75 76 77 78 95 96
 valoroperacion (72)
-    on left: 77 78, on right: 70 74
+    on left: 79 80, on right: 72 76
 constssinsignoarit (73)
-    on left: 79 80, on right: 77
+    on left: 81 82, on right: 79
 constsconsignoarit (74)
-    on left: 81 82, on right: 71 75 76
+    on left: 83 84, on right: 73 77 78
 operadoressumasus (75)
-    on left: 83 84, on right: 73
+    on left: 85 86, on right: 75
 operadoresarit (76)
-    on left: 85 86 87, on right: 72 74 75
+    on left: 87 88 89, on right: 74 76 77
 condicion (77)
-    on left: 88 89, on right: 88 108 113 117
+    on left: 90 91, on right: 90 110 115 119
 verificacion (78)
-    on left: 90 91 92 93 94 95 96, on right: 88 89 95 96
+    on left: 92 93 94 95 96 97 98, on right: 90 91 97 98
 operadoreslogconcat (79)
-    on left: 97 98, on right: 88 92
+    on left: 99 100, on right: 90 94
 operadoreslogcompa (80)
-    on left: 99 100, on right: 94
+    on left: 101 102, on right: 96
 operadoreslogarit (81)
-    on left: 101 102 103 104, on right: 93
+    on left: 103 104 105 106, on right: 95
 structfor (82)
-    on left: 105 106 107, on right: 38 42
+    on left: 107 108 109, on right: 38 42
 for2 (83)
-    on left: 108 109, on right: 105 106
+    on left: 110 111, on right: 107 108
 structwhile (84)
-    on left: 110 111 112, on right: 39 43
+    on left: 112 113 114, on right: 39 43
 structwhile2 (85)
-    on left: 113 114, on right: 110
+    on left: 115 116, on right: 112
 strucif (86)
-    on left: 115 116, on right: 40 44 116
+    on left: 117 118, on right: 40 44 118
 strucif2 (87)
-    on left: 117 118 119, on right: 115
+    on left: 119 120 121, on right: 117
 strucifelse (88)
-    on left: 120, on right: 116
+    on left: 122, on right: 118
 
 
 state 0
@@ -270,7 +272,7 @@ state 0
     error	shift, and go to state 1
     PUBLIC	shift, and go to state 2
 
-    clase	go to state 282
+    clase	go to state 284
 
 
 
@@ -413,8 +415,8 @@ state 12
 
     parametro  ->  error . ID   (rule 20)
     declaracion  ->  error . PUNTOYCOMA   (rule 55)
-    structfor  ->  error . LLAVEA cerrarbloque   (rule 107)
-    structwhile  ->  error . PARENTA PARENTC LLAVEA cerrarbloque   (rule 112)
+    structfor  ->  error . LLAVEA cerrarbloque   (rule 109)
+    structwhile  ->  error . PARENTA PARENTC LLAVEA cerrarbloque   (rule 114)
 
     PUNTOYCOMA	shift, and go to state 43
     ID  	shift, and go to state 44
@@ -425,7 +427,7 @@ state 12
 
 state 13
 
-    strucif  ->  IF . PARENTA strucif2   (rule 115)
+    strucif  ->  IF . PARENTA strucif2   (rule 117)
 
     PARENTA	shift, and go to state 47
 
@@ -433,8 +435,8 @@ state 13
 
 state 14
 
-    structfor  ->  FOR . PARENTA tipo asignacion for2   (rule 105)
-    structfor  ->  FOR . PARENTA asignacion for2   (rule 106)
+    structfor  ->  FOR . PARENTA tipo asignacion for2   (rule 107)
+    structfor  ->  FOR . PARENTA asignacion for2   (rule 108)
 
     PARENTA	shift, and go to state 48
 
@@ -442,8 +444,8 @@ state 14
 
 state 15
 
-    structwhile  ->  WHILE . PARENTA structwhile2   (rule 110)
-    structwhile  ->  WHILE . PARENTA ID PARENTC LLAVEA cerrarbloque   (rule 111)
+    structwhile  ->  WHILE . PARENTA structwhile2   (rule 112)
+    structwhile  ->  WHILE . PARENTA ID PARENTC LLAVEA cerrarbloque   (rule 113)
 
     PARENTA	shift, and go to state 49
 
@@ -521,11 +523,11 @@ state 22
 
     metodomain  ->  error ID . PARENTA parametro PARENTC LLAVEA cerrarbloque   (rule 11)
     declaracion  ->  ID . OPASIGN valorvector PUNTOYCOMA   (rule 54)
-    asignacion  ->  ID . OPASIGN CTECADENA   (rule 59)
-    valorasigarit  ->  ID . operadoresaritasig   (rule 61)
-    valorasigarit  ->  ID . OPMASMAS   (rule 62)
-    valorasigarit  ->  ID . OPASIGN operacion   (rule 63)
-    valorasigarit  ->  ID . OPMENOSMENOS   (rule 64)
+    asignacion  ->  ID . OPASIGN CTECADENA   (rule 61)
+    valorasigarit  ->  ID . operadoresaritasig   (rule 63)
+    valorasigarit  ->  ID . OPMASMAS   (rule 64)
+    valorasigarit  ->  ID . OPASIGN operacion   (rule 65)
+    valorasigarit  ->  ID . OPMENOSMENOS   (rule 66)
 
     OPASIGN	shift, and go to state 57
     OPMASMAS	shift, and go to state 58
@@ -666,9 +668,9 @@ state 32
 
 state 33
 
-    asignacion  ->  valorasigarit .   (rule 58)
+    asignacion  ->  valorasigarit .   (rule 60)
 
-    $default	reduce using rule 58 (asignacion)
+    $default	reduce using rule 60 (asignacion)
 
 
 
@@ -691,7 +693,7 @@ state 35
 state 36
 
     bloque  ->  strucif .   (rule 40)
-    strucif  ->  strucif . strucifelse   (rule 116)
+    strucif  ->  strucif . strucifelse   (rule 118)
 
     ELSE	shift, and go to state 86
 
@@ -772,7 +774,7 @@ state 44
 
 state 45
 
-    structfor  ->  error LLAVEA . cerrarbloque   (rule 107)
+    structfor  ->  error LLAVEA . cerrarbloque   (rule 109)
 
     error	shift, and go to state 76
     IF  	shift, and go to state 13
@@ -800,7 +802,7 @@ state 45
 
 state 46
 
-    structwhile  ->  error PARENTA . PARENTC LLAVEA cerrarbloque   (rule 112)
+    structwhile  ->  error PARENTA . PARENTC LLAVEA cerrarbloque   (rule 114)
 
     PARENTC	shift, and go to state 93
 
@@ -808,7 +810,7 @@ state 46
 
 state 47
 
-    strucif  ->  IF PARENTA . strucif2   (rule 115)
+    strucif  ->  IF PARENTA . strucif2   (rule 117)
 
     error	shift, and go to state 94
     CTEREALSIGNO	shift, and go to state 95
@@ -831,8 +833,8 @@ state 47
 
 state 48
 
-    structfor  ->  FOR PARENTA . tipo asignacion for2   (rule 105)
-    structfor  ->  FOR PARENTA . asignacion for2   (rule 106)
+    structfor  ->  FOR PARENTA . tipo asignacion for2   (rule 107)
+    structfor  ->  FOR PARENTA . asignacion for2   (rule 108)
 
     DOUBLE	shift, and go to state 109
     INT 	shift, and go to state 110
@@ -848,8 +850,8 @@ state 48
 
 state 49
 
-    structwhile  ->  WHILE PARENTA . structwhile2   (rule 110)
-    structwhile  ->  WHILE PARENTA . ID PARENTC LLAVEA cerrarbloque   (rule 111)
+    structwhile  ->  WHILE PARENTA . structwhile2   (rule 112)
+    structwhile  ->  WHILE PARENTA . ID PARENTC LLAVEA cerrarbloque   (rule 113)
 
     error	shift, and go to state 116
     CTEREALSIGNO	shift, and go to state 95
@@ -941,8 +943,8 @@ state 56
 state 57
 
     declaracion  ->  ID OPASIGN . valorvector PUNTOYCOMA   (rule 54)
-    asignacion  ->  ID OPASIGN . CTECADENA   (rule 59)
-    valorasigarit  ->  ID OPASIGN . operacion   (rule 63)
+    asignacion  ->  ID OPASIGN . CTECADENA   (rule 61)
+    valorasigarit  ->  ID OPASIGN . operacion   (rule 65)
 
     CTEREALSIGNO	shift, and go to state 95
     CTEREALSINSIGNO	shift, and go to state 96
@@ -963,23 +965,23 @@ state 57
 
 state 58
 
-    valorasigarit  ->  ID OPMASMAS .   (rule 62)
-
-    $default	reduce using rule 62 (valorasigarit)
-
-
-
-state 59
-
-    valorasigarit  ->  ID OPMENOSMENOS .   (rule 64)
+    valorasigarit  ->  ID OPMASMAS .   (rule 64)
 
     $default	reduce using rule 64 (valorasigarit)
 
 
 
+state 59
+
+    valorasigarit  ->  ID OPMENOSMENOS .   (rule 66)
+
+    $default	reduce using rule 66 (valorasigarit)
+
+
+
 state 60
 
-    operadoresaritasig  ->  OPPORASIGN . operacion   (rule 65)
+    operadoresaritasig  ->  OPPORASIGN . operacion   (rule 67)
 
     CTEREALSIGNO	shift, and go to state 95
     CTEREALSINSIGNO	shift, and go to state 96
@@ -997,7 +999,7 @@ state 60
 
 state 61
 
-    operadoresaritasig  ->  OPDIVASIGN . operacion   (rule 68)
+    operadoresaritasig  ->  OPDIVASIGN . operacion   (rule 70)
 
     CTEREALSIGNO	shift, and go to state 95
     CTEREALSINSIGNO	shift, and go to state 96
@@ -1015,7 +1017,7 @@ state 61
 
 state 62
 
-    operadoresaritasig  ->  OPSUMASIGN . operacion   (rule 66)
+    operadoresaritasig  ->  OPSUMASIGN . operacion   (rule 68)
 
     CTEREALSIGNO	shift, and go to state 95
     CTEREALSINSIGNO	shift, and go to state 96
@@ -1033,7 +1035,7 @@ state 62
 
 state 63
 
-    operadoresaritasig  ->  OPSUSASIGN . operacion   (rule 67)
+    operadoresaritasig  ->  OPSUSASIGN . operacion   (rule 69)
 
     CTEREALSIGNO	shift, and go to state 95
     CTEREALSINSIGNO	shift, and go to state 96
@@ -1067,9 +1069,9 @@ state 64
 
 state 65
 
-    valorasigarit  ->  ID operadoresaritasig .   (rule 61)
+    valorasigarit  ->  ID operadoresaritasig .   (rule 63)
 
-    $default	reduce using rule 61 (valorasigarit)
+    $default	reduce using rule 63 (valorasigarit)
 
 
 
@@ -1146,11 +1148,11 @@ state 72
     parametro  ->  tipo ID .   (rule 18)
     declaracion  ->  tipo ID . PUNTOYCOMA   (rule 45)
     declaracion  ->  tipo ID . declaracion2 PUNTOYCOMA   (rule 49)
-    asignacion  ->  ID . OPASIGN CTECADENA   (rule 59)
-    valorasigarit  ->  ID . operadoresaritasig   (rule 61)
-    valorasigarit  ->  ID . OPMASMAS   (rule 62)
-    valorasigarit  ->  ID . OPASIGN operacion   (rule 63)
-    valorasigarit  ->  ID . OPMENOSMENOS   (rule 64)
+    asignacion  ->  ID . OPASIGN CTECADENA   (rule 61)
+    valorasigarit  ->  ID . operadoresaritasig   (rule 63)
+    valorasigarit  ->  ID . OPMASMAS   (rule 64)
+    valorasigarit  ->  ID . OPASIGN operacion   (rule 65)
+    valorasigarit  ->  ID . OPMENOSMENOS   (rule 66)
 
     COMA	shift, and go to state 140
     PUNTOYCOMA	shift, and go to state 141
@@ -1187,11 +1189,11 @@ state 74
     declaracion  ->  tipovector ID . PUNTOYCOMA   (rule 46)
     declaracion  ->  tipovector ID . OPASIGN valorvector PUNTOYCOMA   (rule 47)
     declaracion  ->  tipovector ID . declaracion2 PUNTOYCOMA   (rule 50)
-    asignacion  ->  ID . OPASIGN CTECADENA   (rule 59)
-    valorasigarit  ->  ID . operadoresaritasig   (rule 61)
-    valorasigarit  ->  ID . OPMASMAS   (rule 62)
-    valorasigarit  ->  ID . OPASIGN operacion   (rule 63)
-    valorasigarit  ->  ID . OPMENOSMENOS   (rule 64)
+    asignacion  ->  ID . OPASIGN CTECADENA   (rule 61)
+    valorasigarit  ->  ID . operadoresaritasig   (rule 63)
+    valorasigarit  ->  ID . OPMASMAS   (rule 64)
+    valorasigarit  ->  ID . OPASIGN operacion   (rule 65)
+    valorasigarit  ->  ID . OPMENOSMENOS   (rule 66)
 
     COMA	shift, and go to state 140
     PUNTOYCOMA	shift, and go to state 146
@@ -1223,8 +1225,8 @@ state 75
 state 76
 
     declaracion  ->  error . PUNTOYCOMA   (rule 55)
-    structfor  ->  error . LLAVEA cerrarbloque   (rule 107)
-    structwhile  ->  error . PARENTA PARENTC LLAVEA cerrarbloque   (rule 112)
+    structfor  ->  error . LLAVEA cerrarbloque   (rule 109)
+    structwhile  ->  error . PARENTA PARENTC LLAVEA cerrarbloque   (rule 114)
 
     PUNTOYCOMA	shift, and go to state 43
     LLAVEA	shift, and go to state 45
@@ -1235,11 +1237,11 @@ state 76
 state 77
 
     declaracion  ->  ID . OPASIGN valorvector PUNTOYCOMA   (rule 54)
-    asignacion  ->  ID . OPASIGN CTECADENA   (rule 59)
-    valorasigarit  ->  ID . operadoresaritasig   (rule 61)
-    valorasigarit  ->  ID . OPMASMAS   (rule 62)
-    valorasigarit  ->  ID . OPASIGN operacion   (rule 63)
-    valorasigarit  ->  ID . OPMENOSMENOS   (rule 64)
+    asignacion  ->  ID . OPASIGN CTECADENA   (rule 61)
+    valorasigarit  ->  ID . operadoresaritasig   (rule 63)
+    valorasigarit  ->  ID . OPMASMAS   (rule 64)
+    valorasigarit  ->  ID . OPASIGN operacion   (rule 65)
+    valorasigarit  ->  ID . OPMENOSMENOS   (rule 66)
 
     OPASIGN	shift, and go to state 57
     OPMASMAS	shift, and go to state 58
@@ -1316,7 +1318,7 @@ state 83
 state 84
 
     bloque  ->  bloque strucif .   (rule 44)
-    strucif  ->  strucif . strucifelse   (rule 116)
+    strucif  ->  strucif . strucifelse   (rule 118)
 
     ELSE	shift, and go to state 86
 
@@ -1336,7 +1338,7 @@ state 85
 
 state 86
 
-    strucifelse  ->  ELSE . LLAVEA cerrarbloque   (rule 120)
+    strucifelse  ->  ELSE . LLAVEA cerrarbloque   (rule 122)
 
     LLAVEA	shift, and go to state 152
 
@@ -1344,9 +1346,9 @@ state 86
 
 state 87
 
-    strucif  ->  strucif strucifelse .   (rule 116)
+    strucif  ->  strucif strucifelse .   (rule 118)
 
-    $default	reduce using rule 116 (strucif)
+    $default	reduce using rule 118 (strucif)
 
 
 
@@ -1394,15 +1396,15 @@ state 91
 
 state 92
 
-    structfor  ->  error LLAVEA cerrarbloque .   (rule 107)
+    structfor  ->  error LLAVEA cerrarbloque .   (rule 109)
 
-    $default	reduce using rule 107 (structfor)
+    $default	reduce using rule 109 (structfor)
 
 
 
 state 93
 
-    structwhile  ->  error PARENTA PARENTC . LLAVEA cerrarbloque   (rule 112)
+    structwhile  ->  error PARENTA PARENTC . LLAVEA cerrarbloque   (rule 114)
 
     LLAVEA	shift, and go to state 156
 
@@ -1410,7 +1412,7 @@ state 93
 
 state 94
 
-    strucif2  ->  error . LLAVEA cerrarbloque   (rule 119)
+    strucif2  ->  error . LLAVEA cerrarbloque   (rule 121)
 
     LLAVEA	shift, and go to state 157
 
@@ -1418,50 +1420,50 @@ state 94
 
 state 95
 
-    constsconsignoarit  ->  CTEREALSIGNO .   (rule 81)
+    constsconsignoarit  ->  CTEREALSIGNO .   (rule 83)
 
-    $default	reduce using rule 81 (constsconsignoarit)
+    $default	reduce using rule 83 (constsconsignoarit)
 
 
 
 state 96
 
-    constssinsignoarit  ->  CTEREALSINSIGNO .   (rule 80)
+    constssinsignoarit  ->  CTEREALSINSIGNO .   (rule 82)
 
-    $default	reduce using rule 80 (constssinsignoarit)
+    $default	reduce using rule 82 (constssinsignoarit)
 
 
 
 state 97
 
-    constsconsignoarit  ->  CTEENTSIGNO .   (rule 82)
+    constsconsignoarit  ->  CTEENTSIGNO .   (rule 84)
 
-    $default	reduce using rule 82 (constsconsignoarit)
+    $default	reduce using rule 84 (constsconsignoarit)
 
 
 
 state 98
 
-    constssinsignoarit  ->  CTEENTSINSIGNO .   (rule 79)
+    constssinsignoarit  ->  CTEENTSINSIGNO .   (rule 81)
 
-    $default	reduce using rule 79 (constssinsignoarit)
+    $default	reduce using rule 81 (constssinsignoarit)
 
 
 
 state 99
 
-    valoroperacion  ->  ID .   (rule 78)
-    verificacion  ->  ID . OPNO CTECADENA   (rule 90)
-    verificacion  ->  ID . OPY CTECADENA   (rule 91)
-    verificacion  ->  ID . operadoreslogconcat ID   (rule 92)
-    strucif2  ->  ID . PARENTC LLAVEA cerrarbloque   (rule 118)
+    valoroperacion  ->  ID .   (rule 80)
+    verificacion  ->  ID . OPNO CTECADENA   (rule 92)
+    verificacion  ->  ID . OPY CTECADENA   (rule 93)
+    verificacion  ->  ID . operadoreslogconcat ID   (rule 94)
+    strucif2  ->  ID . PARENTC LLAVEA cerrarbloque   (rule 120)
 
     PARENTC	shift, and go to state 158
     OPY 	shift, and go to state 159
     OPO 	shift, and go to state 160
     OPNO	shift, and go to state 161
 
-    $default	reduce using rule 78 (valoroperacion)
+    $default	reduce using rule 80 (valoroperacion)
 
     operadoreslogconcat	go to state 162
 
@@ -1469,8 +1471,8 @@ state 99
 
 state 100
 
-    operacion  ->  PARENTA . operacion PARENTC   (rule 69)
-    verificacion  ->  PARENTA . verificacion PARENTC   (rule 95)
+    operacion  ->  PARENTA . operacion PARENTC   (rule 71)
+    verificacion  ->  PARENTA . verificacion PARENTC   (rule 97)
 
     CTEREALSIGNO	shift, and go to state 95
     CTEREALSINSIGNO	shift, and go to state 96
@@ -1490,7 +1492,7 @@ state 100
 
 state 101
 
-    verificacion  ->  OPNO . PARENTA verificacion PARENTC   (rule 96)
+    verificacion  ->  OPNO . PARENTA verificacion PARENTC   (rule 98)
 
     PARENTA	shift, and go to state 166
 
@@ -1498,13 +1500,13 @@ state 101
 
 state 102
 
-    operacion  ->  operacion . operadoresarit PARENTA operacion PARENTC   (rule 72)
-    operacion  ->  operacion . operadoressumasus PARENTA operacion PARENTC   (rule 73)
-    operacion  ->  operacion . operadoresarit valoroperacion   (rule 74)
-    operacion  ->  operacion . operadoresarit constsconsignoarit   (rule 75)
-    operacion  ->  operacion . constsconsignoarit   (rule 76)
-    verificacion  ->  operacion . operadoreslogarit operacion   (rule 93)
-    verificacion  ->  operacion . operadoreslogcompa operacion   (rule 94)
+    operacion  ->  operacion . operadoresarit PARENTA operacion PARENTC   (rule 74)
+    operacion  ->  operacion . operadoressumasus PARENTA operacion PARENTC   (rule 75)
+    operacion  ->  operacion . operadoresarit valoroperacion   (rule 76)
+    operacion  ->  operacion . operadoresarit constsconsignoarit   (rule 77)
+    operacion  ->  operacion . constsconsignoarit   (rule 78)
+    verificacion  ->  operacion . operadoreslogarit operacion   (rule 95)
+    verificacion  ->  operacion . operadoreslogcompa operacion   (rule 96)
 
     CTEREALSIGNO	shift, and go to state 95
     CTEENTSIGNO	shift, and go to state 97
@@ -1530,32 +1532,32 @@ state 102
 
 state 103
 
-    operacion  ->  valoroperacion .   (rule 70)
+    operacion  ->  valoroperacion .   (rule 72)
 
-    $default	reduce using rule 70 (operacion)
+    $default	reduce using rule 72 (operacion)
 
 
 
 state 104
 
-    valoroperacion  ->  constssinsignoarit .   (rule 77)
+    valoroperacion  ->  constssinsignoarit .   (rule 79)
 
-    $default	reduce using rule 77 (valoroperacion)
+    $default	reduce using rule 79 (valoroperacion)
 
 
 
 state 105
 
-    operacion  ->  constsconsignoarit .   (rule 71)
+    operacion  ->  constsconsignoarit .   (rule 73)
 
-    $default	reduce using rule 71 (operacion)
+    $default	reduce using rule 73 (operacion)
 
 
 
 state 106
 
-    condicion  ->  condicion . operadoreslogconcat verificacion   (rule 88)
-    strucif2  ->  condicion . PARENTC LLAVEA cerrarbloque   (rule 117)
+    condicion  ->  condicion . operadoreslogconcat verificacion   (rule 90)
+    strucif2  ->  condicion . PARENTC LLAVEA cerrarbloque   (rule 119)
 
     PARENTC	shift, and go to state 183
     OPY 	shift, and go to state 184
@@ -1567,17 +1569,17 @@ state 106
 
 state 107
 
-    condicion  ->  verificacion .   (rule 89)
+    condicion  ->  verificacion .   (rule 91)
 
-    $default	reduce using rule 89 (condicion)
+    $default	reduce using rule 91 (condicion)
 
 
 
 state 108
 
-    strucif  ->  IF PARENTA strucif2 .   (rule 115)
+    strucif  ->  IF PARENTA strucif2 .   (rule 117)
 
-    $default	reduce using rule 115 (strucif)
+    $default	reduce using rule 117 (strucif)
 
 
 
@@ -1615,11 +1617,11 @@ state 112
 
 state 113
 
-    asignacion  ->  ID . OPASIGN CTECADENA   (rule 59)
-    valorasigarit  ->  ID . operadoresaritasig   (rule 61)
-    valorasigarit  ->  ID . OPMASMAS   (rule 62)
-    valorasigarit  ->  ID . OPASIGN operacion   (rule 63)
-    valorasigarit  ->  ID . OPMENOSMENOS   (rule 64)
+    asignacion  ->  ID . OPASIGN CTECADENA   (rule 61)
+    valorasigarit  ->  ID . operadoresaritasig   (rule 63)
+    valorasigarit  ->  ID . OPMASMAS   (rule 64)
+    valorasigarit  ->  ID . OPASIGN operacion   (rule 65)
+    valorasigarit  ->  ID . OPMENOSMENOS   (rule 66)
 
     OPASIGN	shift, and go to state 142
     OPMASMAS	shift, and go to state 58
@@ -1635,7 +1637,7 @@ state 113
 
 state 114
 
-    structfor  ->  FOR PARENTA tipo . asignacion for2   (rule 105)
+    structfor  ->  FOR PARENTA tipo . asignacion for2   (rule 107)
 
     ID  	shift, and go to state 113
 
@@ -1646,7 +1648,7 @@ state 114
 
 state 115
 
-    structfor  ->  FOR PARENTA asignacion . for2   (rule 106)
+    structfor  ->  FOR PARENTA asignacion . for2   (rule 108)
 
     error	shift, and go to state 187
     PUNTOYCOMA	shift, and go to state 188
@@ -1657,7 +1659,7 @@ state 115
 
 state 116
 
-    structwhile2  ->  error . PARENTC LLAVEA cerrarbloque   (rule 114)
+    structwhile2  ->  error . PARENTC LLAVEA cerrarbloque   (rule 116)
 
     PARENTC	shift, and go to state 190
 
@@ -1665,18 +1667,18 @@ state 116
 
 state 117
 
-    valoroperacion  ->  ID .   (rule 78)
-    verificacion  ->  ID . OPNO CTECADENA   (rule 90)
-    verificacion  ->  ID . OPY CTECADENA   (rule 91)
-    verificacion  ->  ID . operadoreslogconcat ID   (rule 92)
-    structwhile  ->  WHILE PARENTA ID . PARENTC LLAVEA cerrarbloque   (rule 111)
+    valoroperacion  ->  ID .   (rule 80)
+    verificacion  ->  ID . OPNO CTECADENA   (rule 92)
+    verificacion  ->  ID . OPY CTECADENA   (rule 93)
+    verificacion  ->  ID . operadoreslogconcat ID   (rule 94)
+    structwhile  ->  WHILE PARENTA ID . PARENTC LLAVEA cerrarbloque   (rule 113)
 
     PARENTC	shift, and go to state 191
     OPY 	shift, and go to state 159
     OPO 	shift, and go to state 160
     OPNO	shift, and go to state 161
 
-    $default	reduce using rule 78 (valoroperacion)
+    $default	reduce using rule 80 (valoroperacion)
 
     operadoreslogconcat	go to state 162
 
@@ -1684,8 +1686,8 @@ state 117
 
 state 118
 
-    condicion  ->  condicion . operadoreslogconcat verificacion   (rule 88)
-    structwhile2  ->  condicion . PARENTC LLAVEA cerrarbloque   (rule 113)
+    condicion  ->  condicion . operadoreslogconcat verificacion   (rule 90)
+    structwhile2  ->  condicion . PARENTC LLAVEA cerrarbloque   (rule 115)
 
     PARENTC	shift, and go to state 192
     OPY 	shift, and go to state 184
@@ -1697,9 +1699,9 @@ state 118
 
 state 119
 
-    structwhile  ->  WHILE PARENTA structwhile2 .   (rule 110)
+    structwhile  ->  WHILE PARENTA structwhile2 .   (rule 112)
 
-    $default	reduce using rule 110 (structwhile)
+    $default	reduce using rule 112 (structwhile)
 
 
 
@@ -1745,15 +1747,15 @@ state 123
 
 state 124
 
-    asignacion  ->  ID OPASIGN CTECADENA .   (rule 59)
+    asignacion  ->  ID OPASIGN CTECADENA .   (rule 61)
 
-    $default	reduce using rule 59 (asignacion)
+    $default	reduce using rule 61 (asignacion)
 
 
 
 state 125
 
-    valorvector  ->  NEW . tipo dimensionval   (rule 60)
+    valorvector  ->  NEW . tipo dimensionval   (rule 62)
 
     DOUBLE	shift, and go to state 109
     INT 	shift, and go to state 110
@@ -1766,15 +1768,15 @@ state 125
 
 state 126
 
-    valoroperacion  ->  ID .   (rule 78)
+    valoroperacion  ->  ID .   (rule 80)
 
-    $default	reduce using rule 78 (valoroperacion)
+    $default	reduce using rule 80 (valoroperacion)
 
 
 
 state 127
 
-    operacion  ->  PARENTA . operacion PARENTC   (rule 69)
+    operacion  ->  PARENTA . operacion PARENTC   (rule 71)
 
     CTEREALSIGNO	shift, and go to state 95
     CTEREALSINSIGNO	shift, and go to state 96
@@ -1800,12 +1802,12 @@ state 128
 
 state 129
 
-    valorasigarit  ->  ID OPASIGN operacion .   (rule 63)
-    operacion  ->  operacion . operadoresarit PARENTA operacion PARENTC   (rule 72)
-    operacion  ->  operacion . operadoressumasus PARENTA operacion PARENTC   (rule 73)
-    operacion  ->  operacion . operadoresarit valoroperacion   (rule 74)
-    operacion  ->  operacion . operadoresarit constsconsignoarit   (rule 75)
-    operacion  ->  operacion . constsconsignoarit   (rule 76)
+    valorasigarit  ->  ID OPASIGN operacion .   (rule 65)
+    operacion  ->  operacion . operadoresarit PARENTA operacion PARENTC   (rule 74)
+    operacion  ->  operacion . operadoressumasus PARENTA operacion PARENTC   (rule 75)
+    operacion  ->  operacion . operadoresarit valoroperacion   (rule 76)
+    operacion  ->  operacion . operadoresarit constsconsignoarit   (rule 77)
+    operacion  ->  operacion . constsconsignoarit   (rule 78)
 
     CTEREALSIGNO	shift, and go to state 95
     CTEENTSIGNO	shift, and go to state 97
@@ -1815,7 +1817,7 @@ state 129
     OPDIV	shift, and go to state 170
     OPMOD	shift, and go to state 171
 
-    $default	reduce using rule 63 (valorasigarit)
+    $default	reduce using rule 65 (valorasigarit)
 
     constsconsignoarit	go to state 178
     operadoressumasus	go to state 179
@@ -1825,12 +1827,12 @@ state 129
 
 state 130
 
-    operadoresaritasig  ->  OPPORASIGN operacion .   (rule 65)
-    operacion  ->  operacion . operadoresarit PARENTA operacion PARENTC   (rule 72)
-    operacion  ->  operacion . operadoressumasus PARENTA operacion PARENTC   (rule 73)
-    operacion  ->  operacion . operadoresarit valoroperacion   (rule 74)
-    operacion  ->  operacion . operadoresarit constsconsignoarit   (rule 75)
-    operacion  ->  operacion . constsconsignoarit   (rule 76)
+    operadoresaritasig  ->  OPPORASIGN operacion .   (rule 67)
+    operacion  ->  operacion . operadoresarit PARENTA operacion PARENTC   (rule 74)
+    operacion  ->  operacion . operadoressumasus PARENTA operacion PARENTC   (rule 75)
+    operacion  ->  operacion . operadoresarit valoroperacion   (rule 76)
+    operacion  ->  operacion . operadoresarit constsconsignoarit   (rule 77)
+    operacion  ->  operacion . constsconsignoarit   (rule 78)
 
     CTEREALSIGNO	shift, and go to state 95
     CTEENTSIGNO	shift, and go to state 97
@@ -1840,7 +1842,7 @@ state 130
     OPDIV	shift, and go to state 170
     OPMOD	shift, and go to state 171
 
-    $default	reduce using rule 65 (operadoresaritasig)
+    $default	reduce using rule 67 (operadoresaritasig)
 
     constsconsignoarit	go to state 178
     operadoressumasus	go to state 179
@@ -1850,12 +1852,37 @@ state 130
 
 state 131
 
-    operadoresaritasig  ->  OPDIVASIGN operacion .   (rule 68)
-    operacion  ->  operacion . operadoresarit PARENTA operacion PARENTC   (rule 72)
-    operacion  ->  operacion . operadoressumasus PARENTA operacion PARENTC   (rule 73)
-    operacion  ->  operacion . operadoresarit valoroperacion   (rule 74)
-    operacion  ->  operacion . operadoresarit constsconsignoarit   (rule 75)
-    operacion  ->  operacion . constsconsignoarit   (rule 76)
+    operadoresaritasig  ->  OPDIVASIGN operacion .   (rule 70)
+    operacion  ->  operacion . operadoresarit PARENTA operacion PARENTC   (rule 74)
+    operacion  ->  operacion . operadoressumasus PARENTA operacion PARENTC   (rule 75)
+    operacion  ->  operacion . operadoresarit valoroperacion   (rule 76)
+    operacion  ->  operacion . operadoresarit constsconsignoarit   (rule 77)
+    operacion  ->  operacion . constsconsignoarit   (rule 78)
+
+    CTEREALSIGNO	shift, and go to state 95
+    CTEENTSIGNO	shift, and go to state 97
+    OPMULT	shift, and go to state 167
+    OPSUM	shift, and go to state 168
+    OPSUS	shift, and go to state 169
+    OPDIV	shift, and go to state 170
+    OPMOD	shift, and go to state 171
+
+    $default	reduce using rule 70 (operadoresaritasig)
+
+    constsconsignoarit	go to state 178
+    operadoressumasus	go to state 179
+    operadoresarit	go to state 180
+
+
+
+state 132
+
+    operadoresaritasig  ->  OPSUMASIGN operacion .   (rule 68)
+    operacion  ->  operacion . operadoresarit PARENTA operacion PARENTC   (rule 74)
+    operacion  ->  operacion . operadoressumasus PARENTA operacion PARENTC   (rule 75)
+    operacion  ->  operacion . operadoresarit valoroperacion   (rule 76)
+    operacion  ->  operacion . operadoresarit constsconsignoarit   (rule 77)
+    operacion  ->  operacion . constsconsignoarit   (rule 78)
 
     CTEREALSIGNO	shift, and go to state 95
     CTEENTSIGNO	shift, and go to state 97
@@ -1873,39 +1900,14 @@ state 131
 
 
 
-state 132
-
-    operadoresaritasig  ->  OPSUMASIGN operacion .   (rule 66)
-    operacion  ->  operacion . operadoresarit PARENTA operacion PARENTC   (rule 72)
-    operacion  ->  operacion . operadoressumasus PARENTA operacion PARENTC   (rule 73)
-    operacion  ->  operacion . operadoresarit valoroperacion   (rule 74)
-    operacion  ->  operacion . operadoresarit constsconsignoarit   (rule 75)
-    operacion  ->  operacion . constsconsignoarit   (rule 76)
-
-    CTEREALSIGNO	shift, and go to state 95
-    CTEENTSIGNO	shift, and go to state 97
-    OPMULT	shift, and go to state 167
-    OPSUM	shift, and go to state 168
-    OPSUS	shift, and go to state 169
-    OPDIV	shift, and go to state 170
-    OPMOD	shift, and go to state 171
-
-    $default	reduce using rule 66 (operadoresaritasig)
-
-    constsconsignoarit	go to state 178
-    operadoressumasus	go to state 179
-    operadoresarit	go to state 180
-
-
-
 state 133
 
-    operadoresaritasig  ->  OPSUSASIGN operacion .   (rule 67)
-    operacion  ->  operacion . operadoresarit PARENTA operacion PARENTC   (rule 72)
-    operacion  ->  operacion . operadoressumasus PARENTA operacion PARENTC   (rule 73)
-    operacion  ->  operacion . operadoresarit valoroperacion   (rule 74)
-    operacion  ->  operacion . operadoresarit constsconsignoarit   (rule 75)
-    operacion  ->  operacion . constsconsignoarit   (rule 76)
+    operadoresaritasig  ->  OPSUSASIGN operacion .   (rule 69)
+    operacion  ->  operacion . operadoresarit PARENTA operacion PARENTC   (rule 74)
+    operacion  ->  operacion . operadoressumasus PARENTA operacion PARENTC   (rule 75)
+    operacion  ->  operacion . operadoresarit valoroperacion   (rule 76)
+    operacion  ->  operacion . operadoresarit constsconsignoarit   (rule 77)
+    operacion  ->  operacion . constsconsignoarit   (rule 78)
 
     CTEREALSIGNO	shift, and go to state 95
     CTEENTSIGNO	shift, and go to state 97
@@ -1915,7 +1917,7 @@ state 133
     OPDIV	shift, and go to state 170
     OPMOD	shift, and go to state 171
 
-    $default	reduce using rule 67 (operadoresaritasig)
+    $default	reduce using rule 69 (operadoresaritasig)
 
     constsconsignoarit	go to state 178
     operadoressumasus	go to state 179
@@ -1994,10 +1996,11 @@ state 139
 state 140
 
     declaracion2  ->  COMA . asignacion   (rule 56)
+    declaracion2  ->  COMA . ID   (rule 57)
 
-    ID  	shift, and go to state 113
+    ID  	shift, and go to state 202
 
-    asignacion	go to state 202
+    asignacion	go to state 203
     valorasigarit	go to state 33
 
 
@@ -2012,8 +2015,8 @@ state 141
 
 state 142
 
-    asignacion  ->  ID OPASIGN . CTECADENA   (rule 59)
-    valorasigarit  ->  ID OPASIGN . operacion   (rule 63)
+    asignacion  ->  ID OPASIGN . CTECADENA   (rule 61)
+    valorasigarit  ->  ID OPASIGN . operacion   (rule 65)
 
     CTEREALSIGNO	shift, and go to state 95
     CTEREALSINSIGNO	shift, and go to state 96
@@ -2033,10 +2036,11 @@ state 142
 state 143
 
     declaracion  ->  tipo ID declaracion2 . PUNTOYCOMA   (rule 49)
-    declaracion2  ->  declaracion2 . COMA asignacion   (rule 57)
+    declaracion2  ->  declaracion2 . COMA ID   (rule 58)
+    declaracion2  ->  declaracion2 . COMA asignacion   (rule 59)
 
-    COMA	shift, and go to state 203
-    PUNTOYCOMA	shift, and go to state 204
+    COMA	shift, and go to state 204
+    PUNTOYCOMA	shift, and go to state 205
 
 
 
@@ -2051,10 +2055,11 @@ state 144
 state 145
 
     declaracion  ->  tipo asignacion declaracion2 . PUNTOYCOMA   (rule 51)
-    declaracion2  ->  declaracion2 . COMA asignacion   (rule 57)
+    declaracion2  ->  declaracion2 . COMA ID   (rule 58)
+    declaracion2  ->  declaracion2 . COMA asignacion   (rule 59)
 
-    COMA	shift, and go to state 203
-    PUNTOYCOMA	shift, and go to state 205
+    COMA	shift, and go to state 204
+    PUNTOYCOMA	shift, and go to state 206
 
 
 
@@ -2069,8 +2074,8 @@ state 146
 state 147
 
     declaracion  ->  tipovector ID OPASIGN . valorvector PUNTOYCOMA   (rule 47)
-    asignacion  ->  ID OPASIGN . CTECADENA   (rule 59)
-    valorasigarit  ->  ID OPASIGN . operacion   (rule 63)
+    asignacion  ->  ID OPASIGN . CTECADENA   (rule 61)
+    valorasigarit  ->  ID OPASIGN . operacion   (rule 65)
 
     CTEREALSIGNO	shift, and go to state 95
     CTEREALSINSIGNO	shift, and go to state 96
@@ -2081,7 +2086,7 @@ state 147
     ID  	shift, and go to state 126
     PARENTA	shift, and go to state 127
 
-    valorvector	go to state 206
+    valorvector	go to state 207
     operacion	go to state 129
     valoroperacion	go to state 103
     constssinsignoarit	go to state 104
@@ -2092,20 +2097,22 @@ state 147
 state 148
 
     declaracion  ->  tipovector ID declaracion2 . PUNTOYCOMA   (rule 50)
-    declaracion2  ->  declaracion2 . COMA asignacion   (rule 57)
+    declaracion2  ->  declaracion2 . COMA ID   (rule 58)
+    declaracion2  ->  declaracion2 . COMA asignacion   (rule 59)
 
-    COMA	shift, and go to state 203
-    PUNTOYCOMA	shift, and go to state 207
+    COMA	shift, and go to state 204
+    PUNTOYCOMA	shift, and go to state 208
 
 
 
 state 149
 
     declaracion  ->  tipovector asignacion declaracion2 . PUNTOYCOMA   (rule 52)
-    declaracion2  ->  declaracion2 . COMA asignacion   (rule 57)
+    declaracion2  ->  declaracion2 . COMA ID   (rule 58)
+    declaracion2  ->  declaracion2 . COMA asignacion   (rule 59)
 
-    COMA	shift, and go to state 203
-    PUNTOYCOMA	shift, and go to state 208
+    COMA	shift, and go to state 204
+    PUNTOYCOMA	shift, and go to state 209
 
 
 
@@ -2113,11 +2120,11 @@ state 150
 
     declaracion  ->  tipo ID . PUNTOYCOMA   (rule 45)
     declaracion  ->  tipo ID . declaracion2 PUNTOYCOMA   (rule 49)
-    asignacion  ->  ID . OPASIGN CTECADENA   (rule 59)
-    valorasigarit  ->  ID . operadoresaritasig   (rule 61)
-    valorasigarit  ->  ID . OPMASMAS   (rule 62)
-    valorasigarit  ->  ID . OPASIGN operacion   (rule 63)
-    valorasigarit  ->  ID . OPMENOSMENOS   (rule 64)
+    asignacion  ->  ID . OPASIGN CTECADENA   (rule 61)
+    valorasigarit  ->  ID . operadoresaritasig   (rule 63)
+    valorasigarit  ->  ID . OPMASMAS   (rule 64)
+    valorasigarit  ->  ID . OPASIGN operacion   (rule 65)
+    valorasigarit  ->  ID . OPMENOSMENOS   (rule 66)
 
     COMA	shift, and go to state 140
     PUNTOYCOMA	shift, and go to state 141
@@ -2139,11 +2146,11 @@ state 151
     declaracion  ->  tipovector ID . PUNTOYCOMA   (rule 46)
     declaracion  ->  tipovector ID . OPASIGN valorvector PUNTOYCOMA   (rule 47)
     declaracion  ->  tipovector ID . declaracion2 PUNTOYCOMA   (rule 50)
-    asignacion  ->  ID . OPASIGN CTECADENA   (rule 59)
-    valorasigarit  ->  ID . operadoresaritasig   (rule 61)
-    valorasigarit  ->  ID . OPMASMAS   (rule 62)
-    valorasigarit  ->  ID . OPASIGN operacion   (rule 63)
-    valorasigarit  ->  ID . OPMENOSMENOS   (rule 64)
+    asignacion  ->  ID . OPASIGN CTECADENA   (rule 61)
+    valorasigarit  ->  ID . operadoresaritasig   (rule 63)
+    valorasigarit  ->  ID . OPMASMAS   (rule 64)
+    valorasigarit  ->  ID . OPASIGN operacion   (rule 65)
+    valorasigarit  ->  ID . OPMENOSMENOS   (rule 66)
 
     COMA	shift, and go to state 140
     PUNTOYCOMA	shift, and go to state 146
@@ -2162,7 +2169,7 @@ state 151
 
 state 152
 
-    strucifelse  ->  ELSE LLAVEA . cerrarbloque   (rule 120)
+    strucifelse  ->  ELSE LLAVEA . cerrarbloque   (rule 122)
 
     error	shift, and go to state 76
     IF  	shift, and go to state 13
@@ -2175,7 +2182,7 @@ state 152
     ID  	shift, and go to state 77
     LLAVEC	shift, and go to state 23
 
-    cerrarbloque	go to state 209
+    cerrarbloque	go to state 210
     tipo	go to state 79
     tipovector	go to state 80
     bloque	go to state 30
@@ -2192,7 +2199,7 @@ state 153
 
     metodomain  ->  PUBLIC STATIC VOID ID . PARENTA parametro PARENTC LLAVEA cerrarbloque   (rule 8)
 
-    PARENTA	shift, and go to state 210
+    PARENTA	shift, and go to state 211
 
 
 
@@ -2214,35 +2221,7 @@ state 155
 
 state 156
 
-    structwhile  ->  error PARENTA PARENTC LLAVEA . cerrarbloque   (rule 112)
-
-    error	shift, and go to state 76
-    IF  	shift, and go to state 13
-    FOR 	shift, and go to state 14
-    WHILE	shift, and go to state 15
-    DOUBLE	shift, and go to state 16
-    INT 	shift, and go to state 17
-    STRING	shift, and go to state 18
-    CHAR	shift, and go to state 19
-    ID  	shift, and go to state 77
-    LLAVEC	shift, and go to state 23
-
-    cerrarbloque	go to state 211
-    tipo	go to state 79
-    tipovector	go to state 80
-    bloque	go to state 30
-    declaracion	go to state 31
-    asignacion	go to state 32
-    valorasigarit	go to state 33
-    structfor	go to state 34
-    structwhile	go to state 35
-    strucif	go to state 36
-
-
-
-state 157
-
-    strucif2  ->  error LLAVEA . cerrarbloque   (rule 119)
+    structwhile  ->  error PARENTA PARENTC LLAVEA . cerrarbloque   (rule 114)
 
     error	shift, and go to state 76
     IF  	shift, and go to state 13
@@ -2268,61 +2247,89 @@ state 157
 
 
 
+state 157
+
+    strucif2  ->  error LLAVEA . cerrarbloque   (rule 121)
+
+    error	shift, and go to state 76
+    IF  	shift, and go to state 13
+    FOR 	shift, and go to state 14
+    WHILE	shift, and go to state 15
+    DOUBLE	shift, and go to state 16
+    INT 	shift, and go to state 17
+    STRING	shift, and go to state 18
+    CHAR	shift, and go to state 19
+    ID  	shift, and go to state 77
+    LLAVEC	shift, and go to state 23
+
+    cerrarbloque	go to state 213
+    tipo	go to state 79
+    tipovector	go to state 80
+    bloque	go to state 30
+    declaracion	go to state 31
+    asignacion	go to state 32
+    valorasigarit	go to state 33
+    structfor	go to state 34
+    structwhile	go to state 35
+    strucif	go to state 36
+
+
+
 state 158
 
-    strucif2  ->  ID PARENTC . LLAVEA cerrarbloque   (rule 118)
+    strucif2  ->  ID PARENTC . LLAVEA cerrarbloque   (rule 120)
 
-    LLAVEA	shift, and go to state 213
+    LLAVEA	shift, and go to state 214
 
 
 
 state 159
 
-    verificacion  ->  ID OPY . CTECADENA   (rule 91)
-    operadoreslogconcat  ->  OPY .   (rule 97)
+    verificacion  ->  ID OPY . CTECADENA   (rule 93)
+    operadoreslogconcat  ->  OPY .   (rule 99)
 
-    CTECADENA	shift, and go to state 214
+    CTECADENA	shift, and go to state 215
 
-    $default	reduce using rule 97 (operadoreslogconcat)
+    $default	reduce using rule 99 (operadoreslogconcat)
 
 
 
 state 160
 
-    operadoreslogconcat  ->  OPO .   (rule 98)
+    operadoreslogconcat  ->  OPO .   (rule 100)
 
-    $default	reduce using rule 98 (operadoreslogconcat)
+    $default	reduce using rule 100 (operadoreslogconcat)
 
 
 
 state 161
 
-    verificacion  ->  ID OPNO . CTECADENA   (rule 90)
+    verificacion  ->  ID OPNO . CTECADENA   (rule 92)
 
-    CTECADENA	shift, and go to state 215
+    CTECADENA	shift, and go to state 216
 
 
 
 state 162
 
-    verificacion  ->  ID operadoreslogconcat . ID   (rule 92)
+    verificacion  ->  ID operadoreslogconcat . ID   (rule 94)
 
-    ID  	shift, and go to state 216
+    ID  	shift, and go to state 217
 
 
 
 state 163
 
-    valoroperacion  ->  ID .   (rule 78)
-    verificacion  ->  ID . OPNO CTECADENA   (rule 90)
-    verificacion  ->  ID . OPY CTECADENA   (rule 91)
-    verificacion  ->  ID . operadoreslogconcat ID   (rule 92)
+    valoroperacion  ->  ID .   (rule 80)
+    verificacion  ->  ID . OPNO CTECADENA   (rule 92)
+    verificacion  ->  ID . OPY CTECADENA   (rule 93)
+    verificacion  ->  ID . operadoreslogconcat ID   (rule 94)
 
     OPY 	shift, and go to state 159
     OPO 	shift, and go to state 160
     OPNO	shift, and go to state 161
 
-    $default	reduce using rule 78 (valoroperacion)
+    $default	reduce using rule 80 (valoroperacion)
 
     operadoreslogconcat	go to state 162
 
@@ -2330,14 +2337,14 @@ state 163
 
 state 164
 
-    operacion  ->  PARENTA operacion . PARENTC   (rule 69)
-    operacion  ->  operacion . operadoresarit PARENTA operacion PARENTC   (rule 72)
-    operacion  ->  operacion . operadoressumasus PARENTA operacion PARENTC   (rule 73)
-    operacion  ->  operacion . operadoresarit valoroperacion   (rule 74)
-    operacion  ->  operacion . operadoresarit constsconsignoarit   (rule 75)
-    operacion  ->  operacion . constsconsignoarit   (rule 76)
-    verificacion  ->  operacion . operadoreslogarit operacion   (rule 93)
-    verificacion  ->  operacion . operadoreslogcompa operacion   (rule 94)
+    operacion  ->  PARENTA operacion . PARENTC   (rule 71)
+    operacion  ->  operacion . operadoresarit PARENTA operacion PARENTC   (rule 74)
+    operacion  ->  operacion . operadoressumasus PARENTA operacion PARENTC   (rule 75)
+    operacion  ->  operacion . operadoresarit valoroperacion   (rule 76)
+    operacion  ->  operacion . operadoresarit constsconsignoarit   (rule 77)
+    operacion  ->  operacion . constsconsignoarit   (rule 78)
+    verificacion  ->  operacion . operadoreslogarit operacion   (rule 95)
+    verificacion  ->  operacion . operadoreslogcompa operacion   (rule 96)
 
     CTEREALSIGNO	shift, and go to state 95
     CTEENTSIGNO	shift, and go to state 97
@@ -2346,7 +2353,7 @@ state 164
     OPSUS	shift, and go to state 169
     OPDIV	shift, and go to state 170
     OPMOD	shift, and go to state 171
-    PARENTC	shift, and go to state 217
+    PARENTC	shift, and go to state 218
     IGUAL	shift, and go to state 172
     OPMENORIGUAL	shift, and go to state 173
     OPMAYORIGUAL	shift, and go to state 174
@@ -2364,15 +2371,15 @@ state 164
 
 state 165
 
-    verificacion  ->  PARENTA verificacion . PARENTC   (rule 95)
+    verificacion  ->  PARENTA verificacion . PARENTC   (rule 97)
 
-    PARENTC	shift, and go to state 218
+    PARENTC	shift, and go to state 219
 
 
 
 state 166
 
-    verificacion  ->  OPNO PARENTA . verificacion PARENTC   (rule 96)
+    verificacion  ->  OPNO PARENTA . verificacion PARENTC   (rule 98)
 
     CTEREALSIGNO	shift, and go to state 95
     CTEREALSINSIGNO	shift, and go to state 96
@@ -2386,154 +2393,136 @@ state 166
     valoroperacion	go to state 103
     constssinsignoarit	go to state 104
     constsconsignoarit	go to state 105
-    verificacion	go to state 219
+    verificacion	go to state 220
 
 
 
 state 167
 
-    operadoresarit  ->  OPMULT .   (rule 85)
-
-    $default	reduce using rule 85 (operadoresarit)
-
-
-
-state 168
-
-    operadoressumasus  ->  OPSUM .   (rule 83)
-
-    $default	reduce using rule 83 (operadoressumasus)
-
-
-
-state 169
-
-    operadoressumasus  ->  OPSUS .   (rule 84)
-
-    $default	reduce using rule 84 (operadoressumasus)
-
-
-
-state 170
-
-    operadoresarit  ->  OPDIV .   (rule 86)
-
-    $default	reduce using rule 86 (operadoresarit)
-
-
-
-state 171
-
-    operadoresarit  ->  OPMOD .   (rule 87)
+    operadoresarit  ->  OPMULT .   (rule 87)
 
     $default	reduce using rule 87 (operadoresarit)
 
 
 
+state 168
+
+    operadoressumasus  ->  OPSUM .   (rule 85)
+
+    $default	reduce using rule 85 (operadoressumasus)
+
+
+
+state 169
+
+    operadoressumasus  ->  OPSUS .   (rule 86)
+
+    $default	reduce using rule 86 (operadoressumasus)
+
+
+
+state 170
+
+    operadoresarit  ->  OPDIV .   (rule 88)
+
+    $default	reduce using rule 88 (operadoresarit)
+
+
+
+state 171
+
+    operadoresarit  ->  OPMOD .   (rule 89)
+
+    $default	reduce using rule 89 (operadoresarit)
+
+
+
 state 172
 
-    operadoreslogcompa  ->  IGUAL .   (rule 100)
+    operadoreslogcompa  ->  IGUAL .   (rule 102)
 
-    $default	reduce using rule 100 (operadoreslogcompa)
+    $default	reduce using rule 102 (operadoreslogcompa)
 
 
 
 state 173
 
-    operadoreslogarit  ->  OPMENORIGUAL .   (rule 101)
-
-    $default	reduce using rule 101 (operadoreslogarit)
-
-
-
-state 174
-
-    operadoreslogarit  ->  OPMAYORIGUAL .   (rule 104)
-
-    $default	reduce using rule 104 (operadoreslogarit)
-
-
-
-state 175
-
-    operadoreslogcompa  ->  OPDIFERENTE .   (rule 99)
-
-    $default	reduce using rule 99 (operadoreslogcompa)
-
-
-
-state 176
-
-    operadoreslogarit  ->  OPMAYOR .   (rule 103)
+    operadoreslogarit  ->  OPMENORIGUAL .   (rule 103)
 
     $default	reduce using rule 103 (operadoreslogarit)
 
 
 
+state 174
+
+    operadoreslogarit  ->  OPMAYORIGUAL .   (rule 106)
+
+    $default	reduce using rule 106 (operadoreslogarit)
+
+
+
+state 175
+
+    operadoreslogcompa  ->  OPDIFERENTE .   (rule 101)
+
+    $default	reduce using rule 101 (operadoreslogcompa)
+
+
+
+state 176
+
+    operadoreslogarit  ->  OPMAYOR .   (rule 105)
+
+    $default	reduce using rule 105 (operadoreslogarit)
+
+
+
 state 177
 
-    operadoreslogarit  ->  OPMENOR .   (rule 102)
+    operadoreslogarit  ->  OPMENOR .   (rule 104)
 
-    $default	reduce using rule 102 (operadoreslogarit)
+    $default	reduce using rule 104 (operadoreslogarit)
 
 
 
 state 178
 
-    operacion  ->  operacion constsconsignoarit .   (rule 76)
+    operacion  ->  operacion constsconsignoarit .   (rule 78)
 
-    $default	reduce using rule 76 (operacion)
+    $default	reduce using rule 78 (operacion)
 
 
 
 state 179
 
-    operacion  ->  operacion operadoressumasus . PARENTA operacion PARENTC   (rule 73)
+    operacion  ->  operacion operadoressumasus . PARENTA operacion PARENTC   (rule 75)
 
-    PARENTA	shift, and go to state 220
+    PARENTA	shift, and go to state 221
 
 
 
 state 180
 
-    operacion  ->  operacion operadoresarit . PARENTA operacion PARENTC   (rule 72)
-    operacion  ->  operacion operadoresarit . valoroperacion   (rule 74)
-    operacion  ->  operacion operadoresarit . constsconsignoarit   (rule 75)
+    operacion  ->  operacion operadoresarit . PARENTA operacion PARENTC   (rule 74)
+    operacion  ->  operacion operadoresarit . valoroperacion   (rule 76)
+    operacion  ->  operacion operadoresarit . constsconsignoarit   (rule 77)
 
     CTEREALSIGNO	shift, and go to state 95
     CTEREALSINSIGNO	shift, and go to state 96
     CTEENTSIGNO	shift, and go to state 97
     CTEENTSINSIGNO	shift, and go to state 98
     ID  	shift, and go to state 126
-    PARENTA	shift, and go to state 221
+    PARENTA	shift, and go to state 222
 
-    valoroperacion	go to state 222
+    valoroperacion	go to state 223
     constssinsignoarit	go to state 104
-    constsconsignoarit	go to state 223
+    constsconsignoarit	go to state 224
 
 
 
 state 181
 
-    verificacion  ->  operacion operadoreslogcompa . operacion   (rule 94)
-
-    CTEREALSIGNO	shift, and go to state 95
-    CTEREALSINSIGNO	shift, and go to state 96
-    CTEENTSIGNO	shift, and go to state 97
-    CTEENTSINSIGNO	shift, and go to state 98
-    ID  	shift, and go to state 126
-    PARENTA	shift, and go to state 127
-
-    operacion	go to state 224
-    valoroperacion	go to state 103
-    constssinsignoarit	go to state 104
-    constsconsignoarit	go to state 105
-
-
-
-state 182
-
-    verificacion  ->  operacion operadoreslogarit . operacion   (rule 93)
+    verificacion  ->  operacion operadoreslogcompa . operacion   (rule 96)
 
     CTEREALSIGNO	shift, and go to state 95
     CTEREALSINSIGNO	shift, and go to state 96
@@ -2549,25 +2538,43 @@ state 182
 
 
 
+state 182
+
+    verificacion  ->  operacion operadoreslogarit . operacion   (rule 95)
+
+    CTEREALSIGNO	shift, and go to state 95
+    CTEREALSINSIGNO	shift, and go to state 96
+    CTEENTSIGNO	shift, and go to state 97
+    CTEENTSINSIGNO	shift, and go to state 98
+    ID  	shift, and go to state 126
+    PARENTA	shift, and go to state 127
+
+    operacion	go to state 226
+    valoroperacion	go to state 103
+    constssinsignoarit	go to state 104
+    constsconsignoarit	go to state 105
+
+
+
 state 183
 
-    strucif2  ->  condicion PARENTC . LLAVEA cerrarbloque   (rule 117)
+    strucif2  ->  condicion PARENTC . LLAVEA cerrarbloque   (rule 119)
 
-    LLAVEA	shift, and go to state 226
+    LLAVEA	shift, and go to state 227
 
 
 
 state 184
 
-    operadoreslogconcat  ->  OPY .   (rule 97)
+    operadoreslogconcat  ->  OPY .   (rule 99)
 
-    $default	reduce using rule 97 (operadoreslogconcat)
+    $default	reduce using rule 99 (operadoreslogconcat)
 
 
 
 state 185
 
-    condicion  ->  condicion operadoreslogconcat . verificacion   (rule 88)
+    condicion  ->  condicion operadoreslogconcat . verificacion   (rule 90)
 
     CTEREALSIGNO	shift, and go to state 95
     CTEREALSINSIGNO	shift, and go to state 96
@@ -2581,24 +2588,24 @@ state 185
     valoroperacion	go to state 103
     constssinsignoarit	go to state 104
     constsconsignoarit	go to state 105
-    verificacion	go to state 227
+    verificacion	go to state 228
 
 
 
 state 186
 
-    structfor  ->  FOR PARENTA tipo asignacion . for2   (rule 105)
+    structfor  ->  FOR PARENTA tipo asignacion . for2   (rule 107)
 
     error	shift, and go to state 187
     PUNTOYCOMA	shift, and go to state 188
 
-    for2	go to state 228
+    for2	go to state 229
 
 
 
 state 187
 
-    for2  ->  error . cerrarbloque   (rule 109)
+    for2  ->  error . cerrarbloque   (rule 111)
 
     error	shift, and go to state 76
     IF  	shift, and go to state 13
@@ -2611,7 +2618,7 @@ state 187
     ID  	shift, and go to state 77
     LLAVEC	shift, and go to state 23
 
-    cerrarbloque	go to state 229
+    cerrarbloque	go to state 230
     tipo	go to state 79
     tipovector	go to state 80
     bloque	go to state 30
@@ -2626,7 +2633,7 @@ state 187
 
 state 188
 
-    for2  ->  PUNTOYCOMA . condicion PUNTOYCOMA valorasigarit PARENTC LLAVEA cerrarbloque   (rule 108)
+    for2  ->  PUNTOYCOMA . condicion PUNTOYCOMA valorasigarit PARENTC LLAVEA cerrarbloque   (rule 110)
 
     CTEREALSIGNO	shift, and go to state 95
     CTEREALSINSIGNO	shift, and go to state 96
@@ -2640,40 +2647,40 @@ state 188
     valoroperacion	go to state 103
     constssinsignoarit	go to state 104
     constsconsignoarit	go to state 105
-    condicion	go to state 230
+    condicion	go to state 231
     verificacion	go to state 107
 
 
 
 state 189
 
-    structfor  ->  FOR PARENTA asignacion for2 .   (rule 106)
+    structfor  ->  FOR PARENTA asignacion for2 .   (rule 108)
 
-    $default	reduce using rule 106 (structfor)
+    $default	reduce using rule 108 (structfor)
 
 
 
 state 190
 
-    structwhile2  ->  error PARENTC . LLAVEA cerrarbloque   (rule 114)
-
-    LLAVEA	shift, and go to state 231
-
-
-
-state 191
-
-    structwhile  ->  WHILE PARENTA ID PARENTC . LLAVEA cerrarbloque   (rule 111)
+    structwhile2  ->  error PARENTC . LLAVEA cerrarbloque   (rule 116)
 
     LLAVEA	shift, and go to state 232
 
 
 
-state 192
+state 191
 
-    structwhile2  ->  condicion PARENTC . LLAVEA cerrarbloque   (rule 113)
+    structwhile  ->  WHILE PARENTA ID PARENTC . LLAVEA cerrarbloque   (rule 113)
 
     LLAVEA	shift, and go to state 233
+
+
+
+state 192
+
+    structwhile2  ->  condicion PARENTC . LLAVEA cerrarbloque   (rule 115)
+
+    LLAVEA	shift, and go to state 234
 
 
 
@@ -2695,7 +2702,7 @@ state 194
     STRING	shift, and go to state 18
     CHAR	shift, and go to state 19
 
-    parametro	go to state 234
+    parametro	go to state 235
     tipo	go to state 68
     tipovector	go to state 69
 
@@ -2705,28 +2712,28 @@ state 195
 
     metodomain  ->  error VOID ID PARENTA parametro . PARENTC LLAVEA cerrarbloque   (rule 10)
 
-    PARENTC	shift, and go to state 235
+    PARENTC	shift, and go to state 236
 
 
 
 state 196
 
-    valorvector  ->  NEW tipo . dimensionval   (rule 60)
+    valorvector  ->  NEW tipo . dimensionval   (rule 62)
 
-    CORCHETEA	shift, and go to state 236
+    CORCHETEA	shift, and go to state 237
 
-    dimensionval	go to state 237
+    dimensionval	go to state 238
 
 
 
 state 197
 
-    operacion  ->  PARENTA operacion . PARENTC   (rule 69)
-    operacion  ->  operacion . operadoresarit PARENTA operacion PARENTC   (rule 72)
-    operacion  ->  operacion . operadoressumasus PARENTA operacion PARENTC   (rule 73)
-    operacion  ->  operacion . operadoresarit valoroperacion   (rule 74)
-    operacion  ->  operacion . operadoresarit constsconsignoarit   (rule 75)
-    operacion  ->  operacion . constsconsignoarit   (rule 76)
+    operacion  ->  PARENTA operacion . PARENTC   (rule 71)
+    operacion  ->  operacion . operadoresarit PARENTA operacion PARENTC   (rule 74)
+    operacion  ->  operacion . operadoressumasus PARENTA operacion PARENTC   (rule 75)
+    operacion  ->  operacion . operadoresarit valoroperacion   (rule 76)
+    operacion  ->  operacion . operadoresarit constsconsignoarit   (rule 77)
+    operacion  ->  operacion . constsconsignoarit   (rule 78)
 
     CTEREALSIGNO	shift, and go to state 95
     CTEENTSIGNO	shift, and go to state 97
@@ -2735,7 +2742,7 @@ state 197
     OPSUS	shift, and go to state 169
     OPDIV	shift, and go to state 170
     OPMOD	shift, and go to state 171
-    PARENTC	shift, and go to state 217
+    PARENTC	shift, and go to state 218
 
     constsconsignoarit	go to state 178
     operadoressumasus	go to state 179
@@ -2755,7 +2762,7 @@ state 199
 
     metodomain  ->  error ID PARENTA parametro PARENTC . LLAVEA cerrarbloque   (rule 11)
 
-    LLAVEA	shift, and go to state 238
+    LLAVEA	shift, and go to state 239
 
 
 
@@ -2774,7 +2781,7 @@ state 200
     ID  	shift, and go to state 77
     LLAVEC	shift, and go to state 23
 
-    cerrarbloque	go to state 239
+    cerrarbloque	go to state 240
     tipo	go to state 79
     tipovector	go to state 80
     bloque	go to state 30
@@ -2797,24 +2804,48 @@ state 201
 
 state 202
 
+    declaracion2  ->  COMA ID .   (rule 57)
+    asignacion  ->  ID . OPASIGN CTECADENA   (rule 61)
+    valorasigarit  ->  ID . operadoresaritasig   (rule 63)
+    valorasigarit  ->  ID . OPMASMAS   (rule 64)
+    valorasigarit  ->  ID . OPASIGN operacion   (rule 65)
+    valorasigarit  ->  ID . OPMENOSMENOS   (rule 66)
+
+    OPASIGN	shift, and go to state 142
+    OPMASMAS	shift, and go to state 58
+    OPMENOSMENOS	shift, and go to state 59
+    OPPORASIGN	shift, and go to state 60
+    OPDIVASIGN	shift, and go to state 61
+    OPSUMASIGN	shift, and go to state 62
+    OPSUSASIGN	shift, and go to state 63
+
+    $default	reduce using rule 57 (declaracion2)
+
+    operadoresaritasig	go to state 65
+
+
+
+state 203
+
     declaracion2  ->  COMA asignacion .   (rule 56)
 
     $default	reduce using rule 56 (declaracion2)
 
 
 
-state 203
+state 204
 
-    declaracion2  ->  declaracion2 COMA . asignacion   (rule 57)
+    declaracion2  ->  declaracion2 COMA . ID   (rule 58)
+    declaracion2  ->  declaracion2 COMA . asignacion   (rule 59)
 
-    ID  	shift, and go to state 113
+    ID  	shift, and go to state 241
 
-    asignacion	go to state 240
+    asignacion	go to state 242
     valorasigarit	go to state 33
 
 
 
-state 204
+state 205
 
     declaracion  ->  tipo ID declaracion2 PUNTOYCOMA .   (rule 49)
 
@@ -2822,7 +2853,7 @@ state 204
 
 
 
-state 205
+state 206
 
     declaracion  ->  tipo asignacion declaracion2 PUNTOYCOMA .   (rule 51)
 
@@ -2830,15 +2861,15 @@ state 205
 
 
 
-state 206
+state 207
 
     declaracion  ->  tipovector ID OPASIGN valorvector . PUNTOYCOMA   (rule 47)
 
-    PUNTOYCOMA	shift, and go to state 241
+    PUNTOYCOMA	shift, and go to state 243
 
 
 
-state 207
+state 208
 
     declaracion  ->  tipovector ID declaracion2 PUNTOYCOMA .   (rule 50)
 
@@ -2846,7 +2877,7 @@ state 207
 
 
 
-state 208
+state 209
 
     declaracion  ->  tipovector asignacion declaracion2 PUNTOYCOMA .   (rule 52)
 
@@ -2854,15 +2885,15 @@ state 208
 
 
 
-state 209
-
-    strucifelse  ->  ELSE LLAVEA cerrarbloque .   (rule 120)
-
-    $default	reduce using rule 120 (strucifelse)
-
-
-
 state 210
+
+    strucifelse  ->  ELSE LLAVEA cerrarbloque .   (rule 122)
+
+    $default	reduce using rule 122 (strucifelse)
+
+
+
+state 211
 
     metodomain  ->  PUBLIC STATIC VOID ID PARENTA . parametro PARENTC LLAVEA cerrarbloque   (rule 8)
 
@@ -2872,31 +2903,31 @@ state 210
     STRING	shift, and go to state 18
     CHAR	shift, and go to state 19
 
-    parametro	go to state 242
+    parametro	go to state 244
     tipo	go to state 68
     tipovector	go to state 69
 
 
 
-state 211
-
-    structwhile  ->  error PARENTA PARENTC LLAVEA cerrarbloque .   (rule 112)
-
-    $default	reduce using rule 112 (structwhile)
-
-
-
 state 212
 
-    strucif2  ->  error LLAVEA cerrarbloque .   (rule 119)
+    structwhile  ->  error PARENTA PARENTC LLAVEA cerrarbloque .   (rule 114)
 
-    $default	reduce using rule 119 (strucif2)
+    $default	reduce using rule 114 (structwhile)
 
 
 
 state 213
 
-    strucif2  ->  ID PARENTC LLAVEA . cerrarbloque   (rule 118)
+    strucif2  ->  error LLAVEA cerrarbloque .   (rule 121)
+
+    $default	reduce using rule 121 (strucif2)
+
+
+
+state 214
+
+    strucif2  ->  ID PARENTC LLAVEA . cerrarbloque   (rule 120)
 
     error	shift, and go to state 76
     IF  	shift, and go to state 13
@@ -2909,7 +2940,7 @@ state 213
     ID  	shift, and go to state 77
     LLAVEC	shift, and go to state 23
 
-    cerrarbloque	go to state 243
+    cerrarbloque	go to state 245
     tipo	go to state 79
     tipovector	go to state 80
     bloque	go to state 30
@@ -2922,25 +2953,17 @@ state 213
 
 
 
-state 214
-
-    verificacion  ->  ID OPY CTECADENA .   (rule 91)
-
-    $default	reduce using rule 91 (verificacion)
-
-
-
 state 215
 
-    verificacion  ->  ID OPNO CTECADENA .   (rule 90)
+    verificacion  ->  ID OPY CTECADENA .   (rule 93)
 
-    $default	reduce using rule 90 (verificacion)
+    $default	reduce using rule 93 (verificacion)
 
 
 
 state 216
 
-    verificacion  ->  ID operadoreslogconcat ID .   (rule 92)
+    verificacion  ->  ID OPNO CTECADENA .   (rule 92)
 
     $default	reduce using rule 92 (verificacion)
 
@@ -2948,49 +2971,39 @@ state 216
 
 state 217
 
-    operacion  ->  PARENTA operacion PARENTC .   (rule 69)
+    verificacion  ->  ID operadoreslogconcat ID .   (rule 94)
 
-    $default	reduce using rule 69 (operacion)
+    $default	reduce using rule 94 (verificacion)
 
 
 
 state 218
 
-    verificacion  ->  PARENTA verificacion PARENTC .   (rule 95)
+    operacion  ->  PARENTA operacion PARENTC .   (rule 71)
 
-    $default	reduce using rule 95 (verificacion)
+    $default	reduce using rule 71 (operacion)
 
 
 
 state 219
 
-    verificacion  ->  OPNO PARENTA verificacion . PARENTC   (rule 96)
+    verificacion  ->  PARENTA verificacion PARENTC .   (rule 97)
 
-    PARENTC	shift, and go to state 244
+    $default	reduce using rule 97 (verificacion)
 
 
 
 state 220
 
-    operacion  ->  operacion operadoressumasus PARENTA . operacion PARENTC   (rule 73)
+    verificacion  ->  OPNO PARENTA verificacion . PARENTC   (rule 98)
 
-    CTEREALSIGNO	shift, and go to state 95
-    CTEREALSINSIGNO	shift, and go to state 96
-    CTEENTSIGNO	shift, and go to state 97
-    CTEENTSINSIGNO	shift, and go to state 98
-    ID  	shift, and go to state 126
-    PARENTA	shift, and go to state 127
-
-    operacion	go to state 245
-    valoroperacion	go to state 103
-    constssinsignoarit	go to state 104
-    constsconsignoarit	go to state 105
+    PARENTC	shift, and go to state 246
 
 
 
 state 221
 
-    operacion  ->  operacion operadoresarit PARENTA . operacion PARENTC   (rule 72)
+    operacion  ->  operacion operadoressumasus PARENTA . operacion PARENTC   (rule 75)
 
     CTEREALSIGNO	shift, and go to state 95
     CTEREALSINSIGNO	shift, and go to state 96
@@ -2999,7 +3012,7 @@ state 221
     ID  	shift, and go to state 126
     PARENTA	shift, and go to state 127
 
-    operacion	go to state 246
+    operacion	go to state 247
     valoroperacion	go to state 103
     constssinsignoarit	go to state 104
     constsconsignoarit	go to state 105
@@ -3008,53 +3021,46 @@ state 221
 
 state 222
 
-    operacion  ->  operacion operadoresarit valoroperacion .   (rule 74)
+    operacion  ->  operacion operadoresarit PARENTA . operacion PARENTC   (rule 74)
 
-    $default	reduce using rule 74 (operacion)
+    CTEREALSIGNO	shift, and go to state 95
+    CTEREALSINSIGNO	shift, and go to state 96
+    CTEENTSIGNO	shift, and go to state 97
+    CTEENTSINSIGNO	shift, and go to state 98
+    ID  	shift, and go to state 126
+    PARENTA	shift, and go to state 127
+
+    operacion	go to state 248
+    valoroperacion	go to state 103
+    constssinsignoarit	go to state 104
+    constsconsignoarit	go to state 105
 
 
 
 state 223
 
-    operacion  ->  operacion operadoresarit constsconsignoarit .   (rule 75)
+    operacion  ->  operacion operadoresarit valoroperacion .   (rule 76)
 
-    $default	reduce using rule 75 (operacion)
+    $default	reduce using rule 76 (operacion)
 
 
 
 state 224
 
-    operacion  ->  operacion . operadoresarit PARENTA operacion PARENTC   (rule 72)
-    operacion  ->  operacion . operadoressumasus PARENTA operacion PARENTC   (rule 73)
-    operacion  ->  operacion . operadoresarit valoroperacion   (rule 74)
-    operacion  ->  operacion . operadoresarit constsconsignoarit   (rule 75)
-    operacion  ->  operacion . constsconsignoarit   (rule 76)
-    verificacion  ->  operacion operadoreslogcompa operacion .   (rule 94)
+    operacion  ->  operacion operadoresarit constsconsignoarit .   (rule 77)
 
-    CTEREALSIGNO	shift, and go to state 95
-    CTEENTSIGNO	shift, and go to state 97
-    OPMULT	shift, and go to state 167
-    OPSUM	shift, and go to state 168
-    OPSUS	shift, and go to state 169
-    OPDIV	shift, and go to state 170
-    OPMOD	shift, and go to state 171
-
-    $default	reduce using rule 94 (verificacion)
-
-    constsconsignoarit	go to state 178
-    operadoressumasus	go to state 179
-    operadoresarit	go to state 180
+    $default	reduce using rule 77 (operacion)
 
 
 
 state 225
 
-    operacion  ->  operacion . operadoresarit PARENTA operacion PARENTC   (rule 72)
-    operacion  ->  operacion . operadoressumasus PARENTA operacion PARENTC   (rule 73)
-    operacion  ->  operacion . operadoresarit valoroperacion   (rule 74)
-    operacion  ->  operacion . operadoresarit constsconsignoarit   (rule 75)
-    operacion  ->  operacion . constsconsignoarit   (rule 76)
-    verificacion  ->  operacion operadoreslogarit operacion .   (rule 93)
+    operacion  ->  operacion . operadoresarit PARENTA operacion PARENTC   (rule 74)
+    operacion  ->  operacion . operadoressumasus PARENTA operacion PARENTC   (rule 75)
+    operacion  ->  operacion . operadoresarit valoroperacion   (rule 76)
+    operacion  ->  operacion . operadoresarit constsconsignoarit   (rule 77)
+    operacion  ->  operacion . constsconsignoarit   (rule 78)
+    verificacion  ->  operacion operadoreslogcompa operacion .   (rule 96)
 
     CTEREALSIGNO	shift, and go to state 95
     CTEENTSIGNO	shift, and go to state 97
@@ -3064,7 +3070,7 @@ state 225
     OPDIV	shift, and go to state 170
     OPMOD	shift, and go to state 171
 
-    $default	reduce using rule 93 (verificacion)
+    $default	reduce using rule 96 (verificacion)
 
     constsconsignoarit	go to state 178
     operadoressumasus	go to state 179
@@ -3074,72 +3080,32 @@ state 225
 
 state 226
 
-    strucif2  ->  condicion PARENTC LLAVEA . cerrarbloque   (rule 117)
+    operacion  ->  operacion . operadoresarit PARENTA operacion PARENTC   (rule 74)
+    operacion  ->  operacion . operadoressumasus PARENTA operacion PARENTC   (rule 75)
+    operacion  ->  operacion . operadoresarit valoroperacion   (rule 76)
+    operacion  ->  operacion . operadoresarit constsconsignoarit   (rule 77)
+    operacion  ->  operacion . constsconsignoarit   (rule 78)
+    verificacion  ->  operacion operadoreslogarit operacion .   (rule 95)
 
-    error	shift, and go to state 76
-    IF  	shift, and go to state 13
-    FOR 	shift, and go to state 14
-    WHILE	shift, and go to state 15
-    DOUBLE	shift, and go to state 16
-    INT 	shift, and go to state 17
-    STRING	shift, and go to state 18
-    CHAR	shift, and go to state 19
-    ID  	shift, and go to state 77
-    LLAVEC	shift, and go to state 23
+    CTEREALSIGNO	shift, and go to state 95
+    CTEENTSIGNO	shift, and go to state 97
+    OPMULT	shift, and go to state 167
+    OPSUM	shift, and go to state 168
+    OPSUS	shift, and go to state 169
+    OPDIV	shift, and go to state 170
+    OPMOD	shift, and go to state 171
 
-    cerrarbloque	go to state 247
-    tipo	go to state 79
-    tipovector	go to state 80
-    bloque	go to state 30
-    declaracion	go to state 31
-    asignacion	go to state 32
-    valorasigarit	go to state 33
-    structfor	go to state 34
-    structwhile	go to state 35
-    strucif	go to state 36
+    $default	reduce using rule 95 (verificacion)
+
+    constsconsignoarit	go to state 178
+    operadoressumasus	go to state 179
+    operadoresarit	go to state 180
 
 
 
 state 227
 
-    condicion  ->  condicion operadoreslogconcat verificacion .   (rule 88)
-
-    $default	reduce using rule 88 (condicion)
-
-
-
-state 228
-
-    structfor  ->  FOR PARENTA tipo asignacion for2 .   (rule 105)
-
-    $default	reduce using rule 105 (structfor)
-
-
-
-state 229
-
-    for2  ->  error cerrarbloque .   (rule 109)
-
-    $default	reduce using rule 109 (for2)
-
-
-
-state 230
-
-    condicion  ->  condicion . operadoreslogconcat verificacion   (rule 88)
-    for2  ->  PUNTOYCOMA condicion . PUNTOYCOMA valorasigarit PARENTC LLAVEA cerrarbloque   (rule 108)
-
-    PUNTOYCOMA	shift, and go to state 248
-    OPY 	shift, and go to state 184
-    OPO 	shift, and go to state 160
-
-    operadoreslogconcat	go to state 185
-
-
-
-state 231
-
-    structwhile2  ->  error PARENTC LLAVEA . cerrarbloque   (rule 114)
+    strucif2  ->  condicion PARENTC LLAVEA . cerrarbloque   (rule 119)
 
     error	shift, and go to state 76
     IF  	shift, and go to state 13
@@ -3165,37 +3131,46 @@ state 231
 
 
 
+state 228
+
+    condicion  ->  condicion operadoreslogconcat verificacion .   (rule 90)
+
+    $default	reduce using rule 90 (condicion)
+
+
+
+state 229
+
+    structfor  ->  FOR PARENTA tipo asignacion for2 .   (rule 107)
+
+    $default	reduce using rule 107 (structfor)
+
+
+
+state 230
+
+    for2  ->  error cerrarbloque .   (rule 111)
+
+    $default	reduce using rule 111 (for2)
+
+
+
+state 231
+
+    condicion  ->  condicion . operadoreslogconcat verificacion   (rule 90)
+    for2  ->  PUNTOYCOMA condicion . PUNTOYCOMA valorasigarit PARENTC LLAVEA cerrarbloque   (rule 110)
+
+    PUNTOYCOMA	shift, and go to state 250
+    OPY 	shift, and go to state 184
+    OPO 	shift, and go to state 160
+
+    operadoreslogconcat	go to state 185
+
+
+
 state 232
 
-    structwhile  ->  WHILE PARENTA ID PARENTC LLAVEA . cerrarbloque   (rule 111)
-
-    error	shift, and go to state 76
-    IF  	shift, and go to state 13
-    FOR 	shift, and go to state 14
-    WHILE	shift, and go to state 15
-    DOUBLE	shift, and go to state 16
-    INT 	shift, and go to state 17
-    STRING	shift, and go to state 18
-    CHAR	shift, and go to state 19
-    ID  	shift, and go to state 77
-    LLAVEC	shift, and go to state 23
-
-    cerrarbloque	go to state 250
-    tipo	go to state 79
-    tipovector	go to state 80
-    bloque	go to state 30
-    declaracion	go to state 31
-    asignacion	go to state 32
-    valorasigarit	go to state 33
-    structfor	go to state 34
-    structwhile	go to state 35
-    strucif	go to state 36
-
-
-
-state 233
-
-    structwhile2  ->  condicion PARENTC LLAVEA . cerrarbloque   (rule 113)
+    structwhile2  ->  error PARENTC LLAVEA . cerrarbloque   (rule 116)
 
     error	shift, and go to state 76
     IF  	shift, and go to state 13
@@ -3221,48 +3196,104 @@ state 233
 
 
 
+state 233
+
+    structwhile  ->  WHILE PARENTA ID PARENTC LLAVEA . cerrarbloque   (rule 113)
+
+    error	shift, and go to state 76
+    IF  	shift, and go to state 13
+    FOR 	shift, and go to state 14
+    WHILE	shift, and go to state 15
+    DOUBLE	shift, and go to state 16
+    INT 	shift, and go to state 17
+    STRING	shift, and go to state 18
+    CHAR	shift, and go to state 19
+    ID  	shift, and go to state 77
+    LLAVEC	shift, and go to state 23
+
+    cerrarbloque	go to state 252
+    tipo	go to state 79
+    tipovector	go to state 80
+    bloque	go to state 30
+    declaracion	go to state 31
+    asignacion	go to state 32
+    valorasigarit	go to state 33
+    structfor	go to state 34
+    structwhile	go to state 35
+    strucif	go to state 36
+
+
+
 state 234
 
-    metodomain  ->  error STATIC VOID ID PARENTA parametro . PARENTC LLAVEA cerrarbloque   (rule 9)
+    structwhile2  ->  condicion PARENTC LLAVEA . cerrarbloque   (rule 115)
 
-    PARENTC	shift, and go to state 252
+    error	shift, and go to state 76
+    IF  	shift, and go to state 13
+    FOR 	shift, and go to state 14
+    WHILE	shift, and go to state 15
+    DOUBLE	shift, and go to state 16
+    INT 	shift, and go to state 17
+    STRING	shift, and go to state 18
+    CHAR	shift, and go to state 19
+    ID  	shift, and go to state 77
+    LLAVEC	shift, and go to state 23
+
+    cerrarbloque	go to state 253
+    tipo	go to state 79
+    tipovector	go to state 80
+    bloque	go to state 30
+    declaracion	go to state 31
+    asignacion	go to state 32
+    valorasigarit	go to state 33
+    structfor	go to state 34
+    structwhile	go to state 35
+    strucif	go to state 36
 
 
 
 state 235
 
-    metodomain  ->  error VOID ID PARENTA parametro PARENTC . LLAVEA cerrarbloque   (rule 10)
+    metodomain  ->  error STATIC VOID ID PARENTA parametro . PARENTC LLAVEA cerrarbloque   (rule 9)
 
-    LLAVEA	shift, and go to state 253
+    PARENTC	shift, and go to state 254
 
 
 
 state 236
 
-    dimensionval  ->  CORCHETEA . ID CORCHETEC   (rule 29)
-    dimensionval  ->  CORCHETEA . CTEENTSIGNO CORCHETEC   (rule 30)
-    dimensionval  ->  CORCHETEA . CTEENTSINSIGNO CORCHETEC   (rule 31)
+    metodomain  ->  error VOID ID PARENTA parametro PARENTC . LLAVEA cerrarbloque   (rule 10)
 
-    CTEENTSIGNO	shift, and go to state 254
-    CTEENTSINSIGNO	shift, and go to state 255
-    ID  	shift, and go to state 256
+    LLAVEA	shift, and go to state 255
 
 
 
 state 237
 
-    dimensionval  ->  dimensionval . CORCHETEA CTEENTSIGNO CORCHETEC   (rule 32)
-    dimensionval  ->  dimensionval . CORCHETEA CTEENTSINSIGNO CORCHETEC   (rule 33)
-    dimensionval  ->  dimensionval . CORCHETEA ID CORCHETEC   (rule 34)
-    valorvector  ->  NEW tipo dimensionval .   (rule 60)
+    dimensionval  ->  CORCHETEA . ID CORCHETEC   (rule 29)
+    dimensionval  ->  CORCHETEA . CTEENTSIGNO CORCHETEC   (rule 30)
+    dimensionval  ->  CORCHETEA . CTEENTSINSIGNO CORCHETEC   (rule 31)
 
-    CORCHETEA	shift, and go to state 257
-
-    $default	reduce using rule 60 (valorvector)
+    CTEENTSIGNO	shift, and go to state 256
+    CTEENTSINSIGNO	shift, and go to state 257
+    ID  	shift, and go to state 258
 
 
 
 state 238
+
+    dimensionval  ->  dimensionval . CORCHETEA CTEENTSIGNO CORCHETEC   (rule 32)
+    dimensionval  ->  dimensionval . CORCHETEA CTEENTSINSIGNO CORCHETEC   (rule 33)
+    dimensionval  ->  dimensionval . CORCHETEA ID CORCHETEC   (rule 34)
+    valorvector  ->  NEW tipo dimensionval .   (rule 62)
+
+    CORCHETEA	shift, and go to state 259
+
+    $default	reduce using rule 62 (valorvector)
+
+
+
+state 239
 
     metodomain  ->  error ID PARENTA parametro PARENTC LLAVEA . cerrarbloque   (rule 11)
 
@@ -3277,7 +3308,7 @@ state 238
     ID  	shift, and go to state 77
     LLAVEC	shift, and go to state 23
 
-    cerrarbloque	go to state 258
+    cerrarbloque	go to state 260
     tipo	go to state 79
     tipovector	go to state 80
     bloque	go to state 30
@@ -3290,7 +3321,7 @@ state 238
 
 
 
-state 239
+state 240
 
     metodomain  ->  error PARENTA parametro PARENTC LLAVEA cerrarbloque .   (rule 12)
 
@@ -3298,15 +3329,38 @@ state 239
 
 
 
-state 240
-
-    declaracion2  ->  declaracion2 COMA asignacion .   (rule 57)
-
-    $default	reduce using rule 57 (declaracion2)
-
-
-
 state 241
+
+    declaracion2  ->  declaracion2 COMA ID .   (rule 58)
+    asignacion  ->  ID . OPASIGN CTECADENA   (rule 61)
+    valorasigarit  ->  ID . operadoresaritasig   (rule 63)
+    valorasigarit  ->  ID . OPMASMAS   (rule 64)
+    valorasigarit  ->  ID . OPASIGN operacion   (rule 65)
+    valorasigarit  ->  ID . OPMENOSMENOS   (rule 66)
+
+    OPASIGN	shift, and go to state 142
+    OPMASMAS	shift, and go to state 58
+    OPMENOSMENOS	shift, and go to state 59
+    OPPORASIGN	shift, and go to state 60
+    OPDIVASIGN	shift, and go to state 61
+    OPSUMASIGN	shift, and go to state 62
+    OPSUSASIGN	shift, and go to state 63
+
+    $default	reduce using rule 58 (declaracion2)
+
+    operadoresaritasig	go to state 65
+
+
+
+state 242
+
+    declaracion2  ->  declaracion2 COMA asignacion .   (rule 59)
+
+    $default	reduce using rule 59 (declaracion2)
+
+
+
+state 243
 
     declaracion  ->  tipovector ID OPASIGN valorvector PUNTOYCOMA .   (rule 47)
 
@@ -3314,62 +3368,38 @@ state 241
 
 
 
-state 242
+state 244
 
     metodomain  ->  PUBLIC STATIC VOID ID PARENTA parametro . PARENTC LLAVEA cerrarbloque   (rule 8)
 
-    PARENTC	shift, and go to state 259
-
-
-
-state 243
-
-    strucif2  ->  ID PARENTC LLAVEA cerrarbloque .   (rule 118)
-
-    $default	reduce using rule 118 (strucif2)
-
-
-
-state 244
-
-    verificacion  ->  OPNO PARENTA verificacion PARENTC .   (rule 96)
-
-    $default	reduce using rule 96 (verificacion)
+    PARENTC	shift, and go to state 261
 
 
 
 state 245
 
-    operacion  ->  operacion . operadoresarit PARENTA operacion PARENTC   (rule 72)
-    operacion  ->  operacion . operadoressumasus PARENTA operacion PARENTC   (rule 73)
-    operacion  ->  operacion operadoressumasus PARENTA operacion . PARENTC   (rule 73)
-    operacion  ->  operacion . operadoresarit valoroperacion   (rule 74)
-    operacion  ->  operacion . operadoresarit constsconsignoarit   (rule 75)
-    operacion  ->  operacion . constsconsignoarit   (rule 76)
+    strucif2  ->  ID PARENTC LLAVEA cerrarbloque .   (rule 120)
 
-    CTEREALSIGNO	shift, and go to state 95
-    CTEENTSIGNO	shift, and go to state 97
-    OPMULT	shift, and go to state 167
-    OPSUM	shift, and go to state 168
-    OPSUS	shift, and go to state 169
-    OPDIV	shift, and go to state 170
-    OPMOD	shift, and go to state 171
-    PARENTC	shift, and go to state 260
-
-    constsconsignoarit	go to state 178
-    operadoressumasus	go to state 179
-    operadoresarit	go to state 180
+    $default	reduce using rule 120 (strucif2)
 
 
 
 state 246
 
-    operacion  ->  operacion . operadoresarit PARENTA operacion PARENTC   (rule 72)
-    operacion  ->  operacion operadoresarit PARENTA operacion . PARENTC   (rule 72)
-    operacion  ->  operacion . operadoressumasus PARENTA operacion PARENTC   (rule 73)
-    operacion  ->  operacion . operadoresarit valoroperacion   (rule 74)
-    operacion  ->  operacion . operadoresarit constsconsignoarit   (rule 75)
-    operacion  ->  operacion . constsconsignoarit   (rule 76)
+    verificacion  ->  OPNO PARENTA verificacion PARENTC .   (rule 98)
+
+    $default	reduce using rule 98 (verificacion)
+
+
+
+state 247
+
+    operacion  ->  operacion . operadoresarit PARENTA operacion PARENTC   (rule 74)
+    operacion  ->  operacion . operadoressumasus PARENTA operacion PARENTC   (rule 75)
+    operacion  ->  operacion operadoressumasus PARENTA operacion . PARENTC   (rule 75)
+    operacion  ->  operacion . operadoresarit valoroperacion   (rule 76)
+    operacion  ->  operacion . operadoresarit constsconsignoarit   (rule 77)
+    operacion  ->  operacion . constsconsignoarit   (rule 78)
 
     CTEREALSIGNO	shift, and go to state 95
     CTEENTSIGNO	shift, and go to state 97
@@ -3378,7 +3408,7 @@ state 246
     OPSUS	shift, and go to state 169
     OPDIV	shift, and go to state 170
     OPMOD	shift, and go to state 171
-    PARENTC	shift, and go to state 261
+    PARENTC	shift, and go to state 262
 
     constsconsignoarit	go to state 178
     operadoressumasus	go to state 179
@@ -3386,57 +3416,81 @@ state 246
 
 
 
-state 247
-
-    strucif2  ->  condicion PARENTC LLAVEA cerrarbloque .   (rule 117)
-
-    $default	reduce using rule 117 (strucif2)
-
-
-
 state 248
 
-    for2  ->  PUNTOYCOMA condicion PUNTOYCOMA . valorasigarit PARENTC LLAVEA cerrarbloque   (rule 108)
+    operacion  ->  operacion . operadoresarit PARENTA operacion PARENTC   (rule 74)
+    operacion  ->  operacion operadoresarit PARENTA operacion . PARENTC   (rule 74)
+    operacion  ->  operacion . operadoressumasus PARENTA operacion PARENTC   (rule 75)
+    operacion  ->  operacion . operadoresarit valoroperacion   (rule 76)
+    operacion  ->  operacion . operadoresarit constsconsignoarit   (rule 77)
+    operacion  ->  operacion . constsconsignoarit   (rule 78)
 
-    ID  	shift, and go to state 262
+    CTEREALSIGNO	shift, and go to state 95
+    CTEENTSIGNO	shift, and go to state 97
+    OPMULT	shift, and go to state 167
+    OPSUM	shift, and go to state 168
+    OPSUS	shift, and go to state 169
+    OPDIV	shift, and go to state 170
+    OPMOD	shift, and go to state 171
+    PARENTC	shift, and go to state 263
 
-    valorasigarit	go to state 263
+    constsconsignoarit	go to state 178
+    operadoressumasus	go to state 179
+    operadoresarit	go to state 180
 
 
 
 state 249
 
-    structwhile2  ->  error PARENTC LLAVEA cerrarbloque .   (rule 114)
+    strucif2  ->  condicion PARENTC LLAVEA cerrarbloque .   (rule 119)
 
-    $default	reduce using rule 114 (structwhile2)
+    $default	reduce using rule 119 (strucif2)
 
 
 
 state 250
 
-    structwhile  ->  WHILE PARENTA ID PARENTC LLAVEA cerrarbloque .   (rule 111)
+    for2  ->  PUNTOYCOMA condicion PUNTOYCOMA . valorasigarit PARENTC LLAVEA cerrarbloque   (rule 110)
 
-    $default	reduce using rule 111 (structwhile)
+    ID  	shift, and go to state 264
+
+    valorasigarit	go to state 265
 
 
 
 state 251
 
-    structwhile2  ->  condicion PARENTC LLAVEA cerrarbloque .   (rule 113)
+    structwhile2  ->  error PARENTC LLAVEA cerrarbloque .   (rule 116)
 
-    $default	reduce using rule 113 (structwhile2)
+    $default	reduce using rule 116 (structwhile2)
 
 
 
 state 252
 
-    metodomain  ->  error STATIC VOID ID PARENTA parametro PARENTC . LLAVEA cerrarbloque   (rule 9)
+    structwhile  ->  WHILE PARENTA ID PARENTC LLAVEA cerrarbloque .   (rule 113)
 
-    LLAVEA	shift, and go to state 264
+    $default	reduce using rule 113 (structwhile)
 
 
 
 state 253
+
+    structwhile2  ->  condicion PARENTC LLAVEA cerrarbloque .   (rule 115)
+
+    $default	reduce using rule 115 (structwhile2)
+
+
+
+state 254
+
+    metodomain  ->  error STATIC VOID ID PARENTA parametro PARENTC . LLAVEA cerrarbloque   (rule 9)
+
+    LLAVEA	shift, and go to state 266
+
+
+
+state 255
 
     metodomain  ->  error VOID ID PARENTA parametro PARENTC LLAVEA . cerrarbloque   (rule 10)
 
@@ -3451,7 +3505,7 @@ state 253
     ID  	shift, and go to state 77
     LLAVEC	shift, and go to state 23
 
-    cerrarbloque	go to state 265
+    cerrarbloque	go to state 267
     tipo	go to state 79
     tipovector	go to state 80
     bloque	go to state 30
@@ -3464,25 +3518,9 @@ state 253
 
 
 
-state 254
-
-    dimensionval  ->  CORCHETEA CTEENTSIGNO . CORCHETEC   (rule 30)
-
-    CORCHETEC	shift, and go to state 266
-
-
-
-state 255
-
-    dimensionval  ->  CORCHETEA CTEENTSINSIGNO . CORCHETEC   (rule 31)
-
-    CORCHETEC	shift, and go to state 267
-
-
-
 state 256
 
-    dimensionval  ->  CORCHETEA ID . CORCHETEC   (rule 29)
+    dimensionval  ->  CORCHETEA CTEENTSIGNO . CORCHETEC   (rule 30)
 
     CORCHETEC	shift, and go to state 268
 
@@ -3490,17 +3528,33 @@ state 256
 
 state 257
 
-    dimensionval  ->  dimensionval CORCHETEA . CTEENTSIGNO CORCHETEC   (rule 32)
-    dimensionval  ->  dimensionval CORCHETEA . CTEENTSINSIGNO CORCHETEC   (rule 33)
-    dimensionval  ->  dimensionval CORCHETEA . ID CORCHETEC   (rule 34)
+    dimensionval  ->  CORCHETEA CTEENTSINSIGNO . CORCHETEC   (rule 31)
 
-    CTEENTSIGNO	shift, and go to state 269
-    CTEENTSINSIGNO	shift, and go to state 270
-    ID  	shift, and go to state 271
+    CORCHETEC	shift, and go to state 269
 
 
 
 state 258
+
+    dimensionval  ->  CORCHETEA ID . CORCHETEC   (rule 29)
+
+    CORCHETEC	shift, and go to state 270
+
+
+
+state 259
+
+    dimensionval  ->  dimensionval CORCHETEA . CTEENTSIGNO CORCHETEC   (rule 32)
+    dimensionval  ->  dimensionval CORCHETEA . CTEENTSINSIGNO CORCHETEC   (rule 33)
+    dimensionval  ->  dimensionval CORCHETEA . ID CORCHETEC   (rule 34)
+
+    CTEENTSIGNO	shift, and go to state 271
+    CTEENTSINSIGNO	shift, and go to state 272
+    ID  	shift, and go to state 273
+
+
+
+state 260
 
     metodomain  ->  error ID PARENTA parametro PARENTC LLAVEA cerrarbloque .   (rule 11)
 
@@ -3508,38 +3562,38 @@ state 258
 
 
 
-state 259
+state 261
 
     metodomain  ->  PUBLIC STATIC VOID ID PARENTA parametro PARENTC . LLAVEA cerrarbloque   (rule 8)
 
-    LLAVEA	shift, and go to state 272
-
-
-
-state 260
-
-    operacion  ->  operacion operadoressumasus PARENTA operacion PARENTC .   (rule 73)
-
-    $default	reduce using rule 73 (operacion)
-
-
-
-state 261
-
-    operacion  ->  operacion operadoresarit PARENTA operacion PARENTC .   (rule 72)
-
-    $default	reduce using rule 72 (operacion)
+    LLAVEA	shift, and go to state 274
 
 
 
 state 262
 
-    valorasigarit  ->  ID . operadoresaritasig   (rule 61)
-    valorasigarit  ->  ID . OPMASMAS   (rule 62)
-    valorasigarit  ->  ID . OPASIGN operacion   (rule 63)
-    valorasigarit  ->  ID . OPMENOSMENOS   (rule 64)
+    operacion  ->  operacion operadoressumasus PARENTA operacion PARENTC .   (rule 75)
 
-    OPASIGN	shift, and go to state 273
+    $default	reduce using rule 75 (operacion)
+
+
+
+state 263
+
+    operacion  ->  operacion operadoresarit PARENTA operacion PARENTC .   (rule 74)
+
+    $default	reduce using rule 74 (operacion)
+
+
+
+state 264
+
+    valorasigarit  ->  ID . operadoresaritasig   (rule 63)
+    valorasigarit  ->  ID . OPMASMAS   (rule 64)
+    valorasigarit  ->  ID . OPASIGN operacion   (rule 65)
+    valorasigarit  ->  ID . OPMENOSMENOS   (rule 66)
+
+    OPASIGN	shift, and go to state 275
     OPMASMAS	shift, and go to state 58
     OPMENOSMENOS	shift, and go to state 59
     OPPORASIGN	shift, and go to state 60
@@ -3551,15 +3605,15 @@ state 262
 
 
 
-state 263
+state 265
 
-    for2  ->  PUNTOYCOMA condicion PUNTOYCOMA valorasigarit . PARENTC LLAVEA cerrarbloque   (rule 108)
+    for2  ->  PUNTOYCOMA condicion PUNTOYCOMA valorasigarit . PARENTC LLAVEA cerrarbloque   (rule 110)
 
-    PARENTC	shift, and go to state 274
+    PARENTC	shift, and go to state 276
 
 
 
-state 264
+state 266
 
     metodomain  ->  error STATIC VOID ID PARENTA parametro PARENTC LLAVEA . cerrarbloque   (rule 9)
 
@@ -3574,7 +3628,7 @@ state 264
     ID  	shift, and go to state 77
     LLAVEC	shift, and go to state 23
 
-    cerrarbloque	go to state 275
+    cerrarbloque	go to state 277
     tipo	go to state 79
     tipovector	go to state 80
     bloque	go to state 30
@@ -3587,7 +3641,7 @@ state 264
 
 
 
-state 265
+state 267
 
     metodomain  ->  error VOID ID PARENTA parametro PARENTC LLAVEA cerrarbloque .   (rule 10)
 
@@ -3595,7 +3649,7 @@ state 265
 
 
 
-state 266
+state 268
 
     dimensionval  ->  CORCHETEA CTEENTSIGNO CORCHETEC .   (rule 30)
 
@@ -3603,7 +3657,7 @@ state 266
 
 
 
-state 267
+state 269
 
     dimensionval  ->  CORCHETEA CTEENTSINSIGNO CORCHETEC .   (rule 31)
 
@@ -3611,7 +3665,7 @@ state 267
 
 
 
-state 268
+state 270
 
     dimensionval  ->  CORCHETEA ID CORCHETEC .   (rule 29)
 
@@ -3619,25 +3673,9 @@ state 268
 
 
 
-state 269
-
-    dimensionval  ->  dimensionval CORCHETEA CTEENTSIGNO . CORCHETEC   (rule 32)
-
-    CORCHETEC	shift, and go to state 276
-
-
-
-state 270
-
-    dimensionval  ->  dimensionval CORCHETEA CTEENTSINSIGNO . CORCHETEC   (rule 33)
-
-    CORCHETEC	shift, and go to state 277
-
-
-
 state 271
 
-    dimensionval  ->  dimensionval CORCHETEA ID . CORCHETEC   (rule 34)
+    dimensionval  ->  dimensionval CORCHETEA CTEENTSIGNO . CORCHETEC   (rule 32)
 
     CORCHETEC	shift, and go to state 278
 
@@ -3645,101 +3683,23 @@ state 271
 
 state 272
 
-    metodomain  ->  PUBLIC STATIC VOID ID PARENTA parametro PARENTC LLAVEA . cerrarbloque   (rule 8)
+    dimensionval  ->  dimensionval CORCHETEA CTEENTSINSIGNO . CORCHETEC   (rule 33)
 
-    error	shift, and go to state 76
-    IF  	shift, and go to state 13
-    FOR 	shift, and go to state 14
-    WHILE	shift, and go to state 15
-    DOUBLE	shift, and go to state 16
-    INT 	shift, and go to state 17
-    STRING	shift, and go to state 18
-    CHAR	shift, and go to state 19
-    ID  	shift, and go to state 77
-    LLAVEC	shift, and go to state 23
-
-    cerrarbloque	go to state 279
-    tipo	go to state 79
-    tipovector	go to state 80
-    bloque	go to state 30
-    declaracion	go to state 31
-    asignacion	go to state 32
-    valorasigarit	go to state 33
-    structfor	go to state 34
-    structwhile	go to state 35
-    strucif	go to state 36
+    CORCHETEC	shift, and go to state 279
 
 
 
 state 273
 
-    valorasigarit  ->  ID OPASIGN . operacion   (rule 63)
+    dimensionval  ->  dimensionval CORCHETEA ID . CORCHETEC   (rule 34)
 
-    CTEREALSIGNO	shift, and go to state 95
-    CTEREALSINSIGNO	shift, and go to state 96
-    CTEENTSIGNO	shift, and go to state 97
-    CTEENTSINSIGNO	shift, and go to state 98
-    ID  	shift, and go to state 126
-    PARENTA	shift, and go to state 127
-
-    operacion	go to state 129
-    valoroperacion	go to state 103
-    constssinsignoarit	go to state 104
-    constsconsignoarit	go to state 105
+    CORCHETEC	shift, and go to state 280
 
 
 
 state 274
 
-    for2  ->  PUNTOYCOMA condicion PUNTOYCOMA valorasigarit PARENTC . LLAVEA cerrarbloque   (rule 108)
-
-    LLAVEA	shift, and go to state 280
-
-
-
-state 275
-
-    metodomain  ->  error STATIC VOID ID PARENTA parametro PARENTC LLAVEA cerrarbloque .   (rule 9)
-
-    $default	reduce using rule 9 (metodomain)
-
-
-
-state 276
-
-    dimensionval  ->  dimensionval CORCHETEA CTEENTSIGNO CORCHETEC .   (rule 32)
-
-    $default	reduce using rule 32 (dimensionval)
-
-
-
-state 277
-
-    dimensionval  ->  dimensionval CORCHETEA CTEENTSINSIGNO CORCHETEC .   (rule 33)
-
-    $default	reduce using rule 33 (dimensionval)
-
-
-
-state 278
-
-    dimensionval  ->  dimensionval CORCHETEA ID CORCHETEC .   (rule 34)
-
-    $default	reduce using rule 34 (dimensionval)
-
-
-
-state 279
-
-    metodomain  ->  PUBLIC STATIC VOID ID PARENTA parametro PARENTC LLAVEA cerrarbloque .   (rule 8)
-
-    $default	reduce using rule 8 (metodomain)
-
-
-
-state 280
-
-    for2  ->  PUNTOYCOMA condicion PUNTOYCOMA valorasigarit PARENTC LLAVEA . cerrarbloque   (rule 108)
+    metodomain  ->  PUBLIC STATIC VOID ID PARENTA parametro PARENTC LLAVEA . cerrarbloque   (rule 8)
 
     error	shift, and go to state 76
     IF  	shift, and go to state 13
@@ -3765,26 +3725,120 @@ state 280
 
 
 
+state 275
+
+    valorasigarit  ->  ID OPASIGN . operacion   (rule 65)
+
+    CTEREALSIGNO	shift, and go to state 95
+    CTEREALSINSIGNO	shift, and go to state 96
+    CTEENTSIGNO	shift, and go to state 97
+    CTEENTSINSIGNO	shift, and go to state 98
+    ID  	shift, and go to state 126
+    PARENTA	shift, and go to state 127
+
+    operacion	go to state 129
+    valoroperacion	go to state 103
+    constssinsignoarit	go to state 104
+    constsconsignoarit	go to state 105
+
+
+
+state 276
+
+    for2  ->  PUNTOYCOMA condicion PUNTOYCOMA valorasigarit PARENTC . LLAVEA cerrarbloque   (rule 110)
+
+    LLAVEA	shift, and go to state 282
+
+
+
+state 277
+
+    metodomain  ->  error STATIC VOID ID PARENTA parametro PARENTC LLAVEA cerrarbloque .   (rule 9)
+
+    $default	reduce using rule 9 (metodomain)
+
+
+
+state 278
+
+    dimensionval  ->  dimensionval CORCHETEA CTEENTSIGNO CORCHETEC .   (rule 32)
+
+    $default	reduce using rule 32 (dimensionval)
+
+
+
+state 279
+
+    dimensionval  ->  dimensionval CORCHETEA CTEENTSINSIGNO CORCHETEC .   (rule 33)
+
+    $default	reduce using rule 33 (dimensionval)
+
+
+
+state 280
+
+    dimensionval  ->  dimensionval CORCHETEA ID CORCHETEC .   (rule 34)
+
+    $default	reduce using rule 34 (dimensionval)
+
+
+
 state 281
 
-    for2  ->  PUNTOYCOMA condicion PUNTOYCOMA valorasigarit PARENTC LLAVEA cerrarbloque .   (rule 108)
+    metodomain  ->  PUBLIC STATIC VOID ID PARENTA parametro PARENTC LLAVEA cerrarbloque .   (rule 8)
 
-    $default	reduce using rule 108 (for2)
+    $default	reduce using rule 8 (metodomain)
 
 
 
 state 282
 
-    $   	go to state 283
+    for2  ->  PUNTOYCOMA condicion PUNTOYCOMA valorasigarit PARENTC LLAVEA . cerrarbloque   (rule 110)
+
+    error	shift, and go to state 76
+    IF  	shift, and go to state 13
+    FOR 	shift, and go to state 14
+    WHILE	shift, and go to state 15
+    DOUBLE	shift, and go to state 16
+    INT 	shift, and go to state 17
+    STRING	shift, and go to state 18
+    CHAR	shift, and go to state 19
+    ID  	shift, and go to state 77
+    LLAVEC	shift, and go to state 23
+
+    cerrarbloque	go to state 283
+    tipo	go to state 79
+    tipovector	go to state 80
+    bloque	go to state 30
+    declaracion	go to state 31
+    asignacion	go to state 32
+    valorasigarit	go to state 33
+    structfor	go to state 34
+    structwhile	go to state 35
+    strucif	go to state 36
 
 
 
 state 283
 
-    $   	go to state 284
+    for2  ->  PUNTOYCOMA condicion PUNTOYCOMA valorasigarit PARENTC LLAVEA cerrarbloque .   (rule 110)
+
+    $default	reduce using rule 110 (for2)
 
 
 
 state 284
+
+    $   	go to state 285
+
+
+
+state 285
+
+    $   	go to state 286
+
+
+
+state 286
 
     $default	accept

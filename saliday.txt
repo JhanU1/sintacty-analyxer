@@ -1,0 +1,4 @@
+Prueba con el archivo de entrada
+Error sintáctico en línea número : 3
+Error sintáctico en línea número : 5
+Error sintáctico en línea número : 7

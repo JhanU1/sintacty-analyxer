@@ -1,18 +1,22 @@
 %{
+extern int yylex();
 #include <stdio.h>
 #include <string.h>
+
 
 
 extern int contLineas;
 
 int ant=-1;
-
+int conterror=0;
+extern FILE *yyin, *yyout;
 
 void yyerror(const char *str)
 {
     if(ant!=contLineas){
-        fprintf(stderr, "error: %s, %d\n", str, contLineas);
+        fprintf(yyout, "Error sintáctico en línea número : %d\n", contLineas);
         ant=contLineas;
+        conterror=conterror+1;
     }
 }
 
@@ -21,18 +25,6 @@ int yywrap()
     return 1;
 }
 
-int main(int argc, char* argv[])
-{
-    extern FILE *yyin, *yyout;
-  
-    yyin = fopen("entrada.java", "r");
-  
-    yyout = fopen("salida.txt","w");
-
-    while(!feof(yyin)){
-        yyparse();
-    }
-}
 %}
 
 
@@ -124,7 +116,10 @@ clase:
                 | ID OPASIGN valorvector PUNTOYCOMA
                 | error PUNTOYCOMA
                 ;
+
                 declaracion2: COMA asignacion
+                | COMA ID
+                | declaracion2 COMA ID
                 | declaracion2 COMA asignacion;
                 
                 asignacion: valorasigarit 
@@ -228,6 +223,27 @@ clase:
 
         strucifelse: ELSE LLAVEA cerrarbloque
         ;
+
+
+
+%%
+
+int main(int argc, char* argv[])
+{
+    if(argc==2){
+        yyin = fopen(argv[1], "r");
+        yyout = fopen("saliday.txt","w");
+        fprintf(yyout, "Prueba con el archivo de entrada\n");
+        if (yyin != NULL){
+            while(!feof(yyin)){
+                yyparse();
+            }
+            if(conterror == 0){
+                fprintf(yyout, "Bien");
+            }
+        }
+    }
+}
 
 
 
