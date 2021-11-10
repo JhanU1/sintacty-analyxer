@@ -6,7 +6,7 @@
 extern int contLineas;
 
 int ant=-1;
-int valerror=0;
+
 
 void yyerror(const char *str)
 {
@@ -30,14 +30,14 @@ int main(int argc, char* argv[])
     yyout = fopen("salida.txt","w");
 
     while(!feof(yyin)){
-    yyparse();
+        yyparse();
     }
 }
 %}
 
 
 %token  COMA CTEREALSIGNO CTEREALSINSIGNO CTEENTSIGNO  CTEENTSINSIGNO CTECADENA PUNTOYCOMA ELSE IF FOR WHILE 
-%token DOUBLE INT STRING CHAR NEW PUBLIC CLASS STATIC VOID  ID 
+%token DOUBLE INT STRING CHAR NEW PUBLIC CLASS STATIC VOID  ID
 %token COMENTARIOSIMPLE COMENTARIOCOMPLETO OPMULT OPSUM OPSUS OPDIV 
 %token OPASIGN OPMOD OPMASMAS OPMENOSMENOS OPPORASIGN OPDIVASIGN OPSUMASIGN 
 %token OPSUSASIGN LLAVEA LLAVEC PARENTA PARENTC CORCHETEA CORCHETEC IGUAL ARRAY
@@ -46,15 +46,27 @@ int main(int argc, char* argv[])
 
 clase: 
     PUBLIC CLASS ID LLAVEA clase2
+    | error CLASS ID LLAVEA clase2
+    | error ID LLAVEA clase2
     | error LLAVEA clase2
+    | error clase2
     ;
+
     clase2: metodomain LLAVEC
     | LLAVEC
     ; 
 
     metodomain: 
         PUBLIC STATIC VOID ID PARENTA parametro PARENTC LLAVEA cerrarbloque
+        | error STATIC VOID ID PARENTA parametro PARENTC LLAVEA cerrarbloque
+        | error VOID ID PARENTA parametro PARENTC LLAVEA cerrarbloque
+        | error  ID PARENTA parametro PARENTC LLAVEA cerrarbloque
+        | error  PARENTA parametro PARENTC LLAVEA cerrarbloque
+        | error  parametro PARENTC LLAVEA cerrarbloque 
+        | error  PARENTC LLAVEA cerrarbloque
         | error  cerrarbloque
+        
+
         ;       
         cerrarbloque: bloque LLAVEC
         | LLAVEC
@@ -62,6 +74,7 @@ clase:
         
         parametro: tipo ID
         | tipovector ID
+        | error ID
         ;
 
             tipo: STRING
@@ -76,6 +89,7 @@ clase:
                 | INT dimensionparam
                 | DOUBLE dimensionparam
                 ;
+                
                     dimensionval: CORCHETEA ID CORCHETEC
                         | CORCHETEA CTEENTSIGNO CORCHETEC
                         | CORCHETEA CTEENTSINSIGNO CORCHETEC
@@ -190,7 +204,7 @@ clase:
 
         structfor: FOR PARENTA tipo asignacion for2
             | FOR PARENTA asignacion for2
-            | error  LLAVEA cerrarbloque
+            | error LLAVEA cerrarbloque
             ;
                 for2: PUNTOYCOMA  condicion PUNTOYCOMA valorasigarit PARENTC LLAVEA cerrarbloque
                     | error cerrarbloque
@@ -198,6 +212,7 @@ clase:
 
         structwhile: WHILE PARENTA  structwhile2
         | WHILE PARENTA ID PARENTC LLAVEA cerrarbloque
+        | error PARENTA PARENTC LLAVEA cerrarbloque
         ;
             structwhile2: condicion PARENTC LLAVEA cerrarbloque
              | error PARENTC LLAVEA cerrarbloque
