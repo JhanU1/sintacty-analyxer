@@ -109,10 +109,10 @@ error-id {Cte-ent-sin-signo}{alfanum}+?|{Cte-ent-signo}{alfanum}+?
 
 
 %%
-{Cte-real-signo}  {yylval = atoi(yytext);return CTEREALSIGNO;}
-{Cte-real-sin-signo} {yylval = atoi(yytext);return CTEREALSINSIGNO;}
-{Cte-ent-signo} {yylval = atoi(yytext);return CTEENTSIGNO;}
-{Cte-ent-sin-signo} {yylval = atoi(yytext);return CTEENTSINSIGNO;}
+{Cte-real-signo}  return CTEREALSIGNO;
+{Cte-real-sin-signo} return CTEREALSINSIGNO;
+{Cte-ent-signo} return CTEENTSIGNO;
+{Cte-ent-sin-signo} return CTEENTSINSIGNO;
 {Cte-cadena} return CTECADENA;
 {punto-y-coma} return PUNTOYCOMA;
 {else} return ELSE;
@@ -164,23 +164,3 @@ error-id {Cte-ent-sin-signo}{alfanum}+?|{Cte-ent-signo}{alfanum}+?
 {salto-linea} {addLinea();}
 
 %%
-
-
-
-
-
-/*
-int yywrap(){}
-
-int main(int argc, char* argv[]){
-
-    extern FILE *yyin, *yyout;
-  
-    yyin = fopen(argv[1], "r");
-  
-    yyout = fopen("salida.txt","w");
-  
-    yylex();
-    return 0;
-}
-*/
