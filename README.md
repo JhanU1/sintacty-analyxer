@@ -1,1 +1,0 @@
-# sintacty-analyxer
