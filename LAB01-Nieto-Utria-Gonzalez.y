@@ -6,12 +6,12 @@
 extern int contLineas;
 
 int ant=-1;
+int valerror=0;
 
 void yyerror(const char *str)
 {
-
     if(ant!=contLineas){
-    fprintf(stderr, "error: %s, %d\n", str, contLineas);
+        fprintf(stderr, "error: %s, %d\n", str, contLineas);
         ant=contLineas;
     }
 }
@@ -46,7 +46,7 @@ int main(int argc, char* argv[])
 
 clase: 
     PUBLIC CLASS ID LLAVEA clase2
-    | error {yyerrok;yyclearin;}
+    | error LLAVEA clase2
     ;
     clase2: metodomain LLAVEC
     | LLAVEC
@@ -54,7 +54,7 @@ clase:
 
     metodomain: 
         PUBLIC STATIC VOID ID PARENTA parametro PARENTC LLAVEA cerrarbloque
-        | error {yyerrok;yyclearin;} cerrarbloque
+        | error  cerrarbloque
         ;       
         cerrarbloque: bloque LLAVEC
         | LLAVEC
@@ -108,6 +108,7 @@ clase:
                 | tipovector asignacion declaracion2 PUNTOYCOMA
                 | asignacion PUNTOYCOMA
                 | ID OPASIGN valorvector PUNTOYCOMA
+                | error PUNTOYCOMA
                 ;
                 declaracion2: COMA asignacion
                 | declaracion2 COMA asignacion;
@@ -189,23 +190,28 @@ clase:
 
         structfor: FOR PARENTA tipo asignacion for2
             | FOR PARENTA asignacion for2
+            | error  LLAVEA cerrarbloque
             ;
                 for2: PUNTOYCOMA  condicion PUNTOYCOMA valorasigarit PARENTC LLAVEA cerrarbloque
-                    | error {yyerrok;yyclearin;} cerrarbloque
+                    | error cerrarbloque
                     ;
 
-        structwhile: WHILE PARENTA condicion PARENTC LLAVEA cerrarbloque
+        structwhile: WHILE PARENTA  structwhile2
         | WHILE PARENTA ID PARENTC LLAVEA cerrarbloque
-
         ;
+            structwhile2: condicion PARENTC LLAVEA cerrarbloque
+             | error PARENTC LLAVEA cerrarbloque
+            ;
 
-        strucif: IF PARENTA condicion PARENTC LLAVEA cerrarbloque
-        | IF PARENTA ID PARENTC LLAVEA cerrarbloque
-        | strucif strucifelse
+        strucif: IF PARENTA strucif2
+        | strucif  strucifelse
         ;
+            strucif2: condicion PARENTC LLAVEA cerrarbloque
+                | ID PARENTC LLAVEA cerrarbloque
+                | error LLAVEA cerrarbloque
+                ;
 
         strucifelse: ELSE LLAVEA cerrarbloque
-        | error {yyerrok;yyclearin;} cerrarbloque
         ;
 
 
